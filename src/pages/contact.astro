@@ -1,29 +1,140 @@
 ---
-const title = "Gulo AI - Contact";
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content="Contact Gulo AI" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </header>
-    <main>
-      <h1>Contact Us</h1>
-      <p>Get in touch with the Gulo AI team.</p>
-    </main>
-    <footer>
-      <p>&copy; 2026 Gulo AI. All rights reserved.</p>
-    </footer>
-  </body>
-</html>
+<BaseLayout 
+  title="Contact Gulo AI - Get in Touch"
+  description="Ready to transform your business with AI? Contact Gulo AI today to schedule a consultation with our AI experts."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p>Let's discuss how AI can drive innovation in your organization.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section>
+    <div class="container">
+      <div class="grid grid-2">
+        <!-- Contact Form -->
+        <div>
+          <h2>Send Us a Message</h2>
+          <form style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"
+              />
+            </div>
+            
+            <div>
+              <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"
+              />
+            </div>
+            
+            <div>
+              <label for="company" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Company</label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company" 
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"
+              />
+            </div>
+            
+            <div>
+              <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Subject *</label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                required 
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"
+              />
+            </div>
+            
+            <div>
+              <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                required 
+                rows="6"
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem; resize: vertical;"
+              ></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+          </form>
+        </div>
+        
+        <!-- Contact Information -->
+        <div>
+          <h2>Contact Information</h2>
+          <p>We're here to help! Reach out to us through any of the following channels:</p>
+          
+          <div class="card" style="margin-top: 2rem;">
+            <h3>📧 Email</h3>
+            <p><a href="mailto:info@gulo.ai">info@gulo.ai</a></p>
+            <p><a href="mailto:sales@gulo.ai">sales@gulo.ai</a></p>
+            <p><a href="mailto:support@gulo.ai">support@gulo.ai</a></p>
+          </div>
+          
+          <div class="card" style="margin-top: 1rem;">
+            <h3>⏰ Business Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+            <p>Saturday - Sunday: Closed</p>
+            <p style="margin-bottom: 0;"><em>24/7 support available for enterprise clients</em></p>
+          </div>
+          
+          <div class="card" style="margin-top: 1rem;">
+            <h3>🚀 Get Started</h3>
+            <p>Schedule a free consultation to discuss your AI needs:</p>
+            <a href="/contact" class="btn btn-primary">Schedule Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>How long does a typical AI project take?</h3>
+          <p>Project timelines vary based on complexity, but most implementations range from 8-16 weeks from initial consultation to deployment.</p>
+        </div>
+        
+        <div class="card">
+          <h3>What industries do you serve?</h3>
+          <p>We work across industries including finance, healthcare, retail, manufacturing, and technology. Our solutions are customized to each sector's unique needs.</p>
+        </div>
+        
+        <div class="card">
+          <h3>Do you offer training for our team?</h3>
+          <p>Yes! We provide comprehensive training programs to ensure your team can effectively use and maintain the AI solutions we implement.</p>
+        </div>
+        
+        <div class="card">
+          <h3>What is the cost of your services?</h3>
+          <p>Pricing varies based on project scope and requirements. Contact us for a customized quote tailored to your specific needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
