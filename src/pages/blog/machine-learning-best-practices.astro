@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -144,12 +145,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="card" style="margin-top: 3rem; background: var(--color-gray-light);">
           <h3>Need Help with Your ML Projects?</h3>
           <p>Gulo AI's team of machine learning experts can help you implement these best practices and build robust ML systems tailored to your needs.</p>
-          <a href="/contact" class="btn btn-primary">Get Expert Guidance</a>
+          <a href={`${base}contact`} class="btn btn-primary">Get Expert Guidance</a>
         </div>
       </article>
 
       <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-gray-light);">
-        <a href="/blog" style="color: var(--color-primary); font-weight: 500;">← Back to Blog</a>
+        <a href={`${base}blog`} style="color: var(--color-primary); font-weight: 500;">← Back to Blog</a>
       </div>
     </div>
   </section>

@@ -1,10 +1,13 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
 }
 
 const { title, description = "Gulo AI - Advanced AI Solutions for Business" } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!DOCTYPE html>
@@ -14,18 +17,17 @@ const { title, description = "Gulo AI - Advanced AI Solutions for Business" } = 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <header>
       <nav class="container">
-        <a href="/" class="logo">Gulo AI</a>
+        <a href={base} class="logo">Gulo AI</a>
         <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href={base}>Home</a></li>
+          <li><a href={`${base}about`}>About</a></li>
+          <li><a href={`${base}services`}>Services</a></li>
+          <li><a href={`${base}blog`}>Blog</a></li>
+          <li><a href={`${base}contact`}>Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -44,25 +46,25 @@ const { title, description = "Gulo AI - Advanced AI Solutions for Business" } = 
           <div class="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/blog">Blog</a></li>
+              <li><a href={base}>Home</a></li>
+              <li><a href={`${base}about`}>About Us</a></li>
+              <li><a href={`${base}services`}>Services</a></li>
+              <li><a href={`${base}blog`}>Blog</a></li>
             </ul>
           </div>
           <div class="footer-section">
             <h4>Services</h4>
             <ul>
-              <li><a href="/services#ai-consulting">AI Consulting</a></li>
-              <li><a href="/services#machine-learning">Machine Learning</a></li>
-              <li><a href="/services#data-analytics">Data Analytics</a></li>
-              <li><a href="/services#automation">Automation Solutions</a></li>
+              <li><a href={`${base}services#ai-consulting`}>AI Consulting</a></li>
+              <li><a href={`${base}services#machine-learning`}>Machine Learning</a></li>
+              <li><a href={`${base}services#data-analytics`}>Data Analytics</a></li>
+              <li><a href={`${base}services#automation`}>Automation Solutions</a></li>
             </ul>
           </div>
           <div class="footer-section">
             <h4>Contact</h4>
             <ul>
-              <li><a href="/contact">Get in Touch</a></li>
+              <li><a href={`${base}contact`}>Get in Touch</a></li>
               <li><a href="mailto:info@gulo.ai">info@gulo.ai</a></li>
             </ul>
           </div>

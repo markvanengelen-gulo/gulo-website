@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -127,7 +128,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
         Ready to explore how AI can transform your business?
       </p>
-      <a href="/contact" class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
+      <a href={`${base}contact`} class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
         Get in Touch
       </a>
     </div>
