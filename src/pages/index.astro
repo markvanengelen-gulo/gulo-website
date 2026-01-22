@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -12,8 +13,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1>Transform Your Business with AI</h1>
       <p>Harness the power of artificial intelligence to drive innovation, automate processes, and unlock unprecedented insights from your data.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/contact" class="btn btn-primary btn-large">Get Started</a>
-        <a href="/services" class="btn btn-secondary btn-large">Learn More</a>
+        <a href={`${base}contact`} class="btn btn-primary btn-large">Get Started</a>
+        <a href={`${base}services`} class="btn btn-secondary btn-large">Learn More</a>
       </div>
     </div>
   </section>
@@ -74,25 +75,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="card">
           <h3>AI Consulting</h3>
           <p>Strategic guidance to identify AI opportunities and develop implementation roadmaps tailored to your organization.</p>
-          <a href="/services#ai-consulting" class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#ai-consulting`} class="btn btn-primary">Learn More →</a>
         </div>
         
         <div class="card">
           <h3>Machine Learning</h3>
           <p>Custom ML models that learn from your data to predict trends, automate decisions, and optimize operations.</p>
-          <a href="/services#machine-learning" class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#machine-learning`} class="btn btn-primary">Learn More →</a>
         </div>
         
         <div class="card">
           <h3>Natural Language Processing</h3>
           <p>Extract meaning from text, automate customer service, and enable intelligent document processing.</p>
-          <a href="/services#nlp" class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#nlp`} class="btn btn-primary">Learn More →</a>
         </div>
         
         <div class="card">
           <h3>Computer Vision</h3>
           <p>Visual intelligence solutions for quality control, object detection, and automated inspection systems.</p>
-          <a href="/services#computer-vision" class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#computer-vision`} class="btn btn-primary">Learn More →</a>
         </div>
       </div>
     </div>
@@ -130,7 +131,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
         Let's discuss how AI can drive innovation in your organization.
       </p>
-      <a href="/contact" class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
+      <a href={`${base}contact`} class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
         Schedule a Consultation
       </a>
     </div>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -48,7 +49,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>Resource planning guide</li>
           </ul>
           
-          <a href="/contact" class="btn btn-primary mt-4">Get Started</a>
+          <a href={`${base}contact`} class="btn btn-primary mt-4">Get Started</a>
         </div>
       </div>
     </div>
@@ -77,7 +78,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <li>Demand forecasting</li>
           </ul>
           
-          <a href="/contact" class="btn btn-primary mt-4">Learn More</a>
+          <a href={`${base}contact`} class="btn btn-primary mt-4">Learn More</a>
         </div>
         <div>
           <h2>Machine Learning Solutions</h2>
@@ -261,7 +262,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
         Let's discuss which AI solution is right for your business.
       </p>
-      <a href="/contact" class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
+      <a href={`${base}contact`} class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
         Schedule a Consultation
       </a>
     </div>
