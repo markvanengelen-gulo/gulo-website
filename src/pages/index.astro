@@ -1,29 +1,138 @@
 ---
-const title = "Gulo AI - Home";
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content="Welcome to Gulo AI" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </header>
-    <main>
-      <h1>Welcome to Gulo AI</h1>
-      <p>This is the home page of Gulo AI.</p>
-    </main>
-    <footer>
-      <p>&copy; 2026 Gulo AI. All rights reserved.</p>
-    </footer>
-  </body>
-</html>
+<BaseLayout 
+  title="Gulo AI - Advanced AI Solutions for Business"
+  description="Transform your business with cutting-edge AI technology. Gulo AI provides intelligent solutions for automation, data analytics, and machine learning."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Transform Your Business with AI</h1>
+      <p>Harness the power of artificial intelligence to drive innovation, automate processes, and unlock unprecedented insights from your data.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/contact" class="btn btn-primary btn-large">Get Started</a>
+        <a href="/services" class="btn btn-secondary btn-large">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why Choose Gulo AI?</h2>
+      <p class="section-subtitle">We deliver cutting-edge AI solutions tailored to your business needs</p>
+      
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="feature-icon">🚀</div>
+          <h3>Innovation First</h3>
+          <p>Stay ahead of the curve with the latest AI technologies and methodologies.</p>
+        </div>
+        
+        <div class="card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast Implementation</h3>
+          <p>Get up and running quickly with our streamlined deployment process.</p>
+        </div>
+        
+        <div class="card">
+          <div class="feature-icon">🎯</div>
+          <h3>Results Driven</h3>
+          <p>Measurable outcomes that directly impact your bottom line.</p>
+        </div>
+        
+        <div class="card">
+          <div class="feature-icon">🔒</div>
+          <h3>Enterprise Security</h3>
+          <p>Bank-grade security measures to protect your sensitive data.</p>
+        </div>
+        
+        <div class="card">
+          <div class="feature-icon">📊</div>
+          <h3>Data Analytics</h3>
+          <p>Turn raw data into actionable insights with advanced analytics.</p>
+        </div>
+        
+        <div class="card">
+          <div class="feature-icon">🤝</div>
+          <h3>Expert Support</h3>
+          <p>Dedicated team of AI specialists ready to assist you 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive AI solutions for every business challenge</p>
+      
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>AI Consulting</h3>
+          <p>Strategic guidance to identify AI opportunities and develop implementation roadmaps tailored to your organization.</p>
+          <a href="/services#ai-consulting" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+          <h3>Machine Learning</h3>
+          <p>Custom ML models that learn from your data to predict trends, automate decisions, and optimize operations.</p>
+          <a href="/services#machine-learning" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+          <h3>Natural Language Processing</h3>
+          <p>Extract meaning from text, automate customer service, and enable intelligent document processing.</p>
+          <a href="/services#nlp" class="btn btn-primary">Learn More →</a>
+        </div>
+        
+        <div class="card">
+          <h3>Computer Vision</h3>
+          <p>Visual intelligence solutions for quality control, object detection, and automated inspection systems.</p>
+          <a href="/services#computer-vision" class="btn btn-primary">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Proven Track Record</h2>
+      <div class="grid grid-4">
+        <div class="text-center">
+          <h2 class="text-primary">500+</h2>
+          <p>Projects Completed</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-primary">98%</h2>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-primary">50+</h2>
+          <p>Enterprise Clients</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-primary">24/7</h2>
+          <p>Expert Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white;">
+    <div class="container text-center">
+      <h2 style="color: white;">Ready to Transform Your Business?</h2>
+      <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
+        Let's discuss how AI can drive innovation in your organization.
+      </p>
+      <a href="/contact" class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
+        Schedule a Consultation
+      </a>
+    </div>
+  </section>
+</BaseLayout>
