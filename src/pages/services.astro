@@ -1,24 +1,242 @@
-<h2>Our Services</h2>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
 
-<h3>Data &amp; AI Project Services</h3>
-<p>We provide cutting-edge data and AI project services to help businesses leverage their data effectively.</p>
+<BaseLayout 
+  title="Services - Gulo AI"
+  description="Practical technology, data, AI, and cybersecurity services that deliver measurable outcomes."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Services</h1>
+      <p class="hero-subtitle">At Gulo, we focus on <strong>practical technology, data, AI, and cybersecurity services</strong> that deliver measurable outcomes.<br>We work with organizations that need to move forward confidently—without overengineering, vendor lock-in, or unnecessary risk.</p>
+    </div>
+  </section>
 
-<h3>Cybersecurity Services</h3>
-<p>Our cybersecurity services ensure your company’s data and assets are protected from threats and attacks.</p>
+  <!-- Data & AI Project Services -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Data & AI Project Services</h2>
+      <p class="service-hook">From strategy to production — AI that actually delivers results.</p>
+      
+      <p>Many organizations struggle to move beyond AI pilots. We help bridge that gap by designing, building, and operationalizing data and AI solutions that are secure, scalable, and aligned to real business needs.</p>
+      
+      <p>We work across the full lifecycle—from early ideation through to production, optimization, and long-term operations.</p>
 
-<h3>Managed IT Services</h3>
-<p>We offer comprehensive managed IT services, providing you with the support needed to keep your IT systems running smoothly.</p>
+      <h3>What we do</h3>
+      <ul>
+        <li>AI strategy and use-case prioritization</li>
+        <li>Data platform design and modernization</li>
+        <li>Machine learning model development</li>
+        <li><strong>MLOps & AI Ops</strong> (deployment, monitoring, governance)</li>
+        <li>Responsible and secure AI implementation</li>
+        <li>Integration with existing business systems</li>
+      </ul>
 
-<h3>Architecture Services</h3>
-<p>Our Architecture Services encompass a full range of offerings, including:</p>
-<ul>
-<li>Design and planning of commercial and residential buildings.</li>
-<li>Urban planning and landscape architecture.</li>
-<li>Consultation on sustainable architectural practices.</li>
-</ul>
-<p>We focus on delivering aesthetically pleasing and functional architecture to meet the needs of our clients.</p>
+      <h3>Industries we support</h3>
+      <ul>
+        <li>Government & Crown Corporations</li>
+        <li>Healthcare & Life Sciences</li>
+        <li>Energy & Utilities</li>
+        <li>Retail, Logistics & Supply Chain</li>
+      </ul>
 
-<h3>Case Studies</h3>
-<p>1. <strong>Smart City Project:</strong> Our team designed innovative solutions for urban environments, enhancing livability and sustainability.</p>
-<p>2. <strong>Luxury Residential Home:</strong> We transformed our client’s vision into reality, creating a stunning space tailored to their lifestyle.</p>
-<p>3. <strong>Corporate Headquarters:</strong> Our approach emphasized functionality while maintaining an impressive architectural presence.</p>
+      <h3>Outcomes you can expect</h3>
+      <ul>
+        <li>Faster time-to-value from AI initiatives</li>
+        <li>Reduced risk and technical debt</li>
+        <li>Clear ownership, governance, and accountability</li>
+        <li>AI systems that can be operated long-term—not abandoned</li>
+      </ul>
+
+      <h3>Case Studies</h3>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>AI Readiness & Roadmap for a Crown Corporation</h4>
+          <p>A Canadian Crown Corporation engaged Gulo to assess its readiness for AI adoption. We evaluated data maturity, governance, security, and organizational capability, delivering a prioritized AI roadmap focused on operational efficiency and service delivery.</p>
+          <p><strong>Result:</strong> Clear execution plan, reduced risk, and leadership alignment before investing in AI.</p>
+        </div>
+        
+        <div class="card">
+          <h4>MLOps Enablement for a Retail Organization</h4>
+          <p>A retail organization was experimenting with AI models but struggled to deploy them reliably. Gulo designed and implemented an MLOps framework enabling automated deployment, monitoring, and retraining.</p>
+          <p><strong>Result:</strong> Faster deployment cycles and AI models that stayed accurate and trustworthy in production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cybersecurity Services -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Cybersecurity Services</h2>
+      <p class="service-hook">Security that enables progress — not just compliance.</p>
+      
+      <p>Cybersecurity is not about blocking everything—it's about protecting what matters while enabling innovation. We help organizations build secure, resilient environments that support their strategic objectives.</p>
+      
+      <p>We take a risk-based, outcome-focused approach—balancing security controls with usability, compliance, and operational realities.</p>
+
+      <h3>What we do</h3>
+      <ul>
+        <li>Security assessments and risk analysis</li>
+        <li>Secure cloud and hybrid architecture design</li>
+        <li>Identity and access management (IAM)</li>
+        <li>Security Operations Center (SOC) enablement</li>
+        <li>Incident response and readiness</li>
+        <li>Compliance and governance frameworks (e.g., NIST, CIS, ISO 27001)</li>
+      </ul>
+
+      <h3>Industries we support</h3>
+      <ul>
+        <li>Government & Crown Corporations</li>
+        <li>Healthcare & Life Sciences</li>
+        <li>Financial Services</li>
+        <li>Energy & Critical Infrastructure</li>
+      </ul>
+
+      <h3>Outcomes you can expect</h3>
+      <ul>
+        <li>Stronger security posture with measurable improvements</li>
+        <li>Reduced exposure to cyber threats and vulnerabilities</li>
+        <li>Compliance with regulatory and industry standards</li>
+        <li>Security frameworks that scale with your organization</li>
+      </ul>
+
+      <h3>Case Studies</h3>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Security Operations Enablement for a Healthcare Provider</h4>
+          <p>A healthcare provider needed to strengthen its security monitoring and incident response capabilities. Gulo designed and implemented a security operations framework, including threat detection, log analysis, and incident response playbooks.</p>
+          <p><strong>Result:</strong> Faster threat detection and response, with clear accountability and improved compliance.</p>
+        </div>
+        
+        <div class="card">
+          <h4>Cloud Security Architecture for a Government Organization</h4>
+          <p>A government organization required a secure cloud architecture aligned to national security standards. Gulo designed a multi-layered security framework covering identity, data protection, and network segmentation.</p>
+          <p><strong>Result:</strong> Secure cloud adoption with auditable controls and reduced attack surface.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Managed IT Services -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Managed IT Services</h2>
+      <p class="service-hook">Reliable, proactive IT management — so you can focus on what matters.</p>
+      
+      <p>Technology should work for you—not distract you. Our Managed IT Services provide reliable, secure, and proactive support for your infrastructure, applications, and operations.</p>
+      
+      <p>We handle the complexity, so your team can focus on delivering value to your organization and customers.</p>
+
+      <h3>What we do</h3>
+      <ul>
+        <li>Infrastructure monitoring and management</li>
+        <li>Cloud platform operations (AWS, Azure, GCP)</li>
+        <li>Application support and maintenance</li>
+        <li>Backup, disaster recovery, and business continuity</li>
+        <li>Helpdesk and end-user support</li>
+        <li>Patch management and vulnerability remediation</li>
+      </ul>
+
+      <h3>Industries we support</h3>
+      <ul>
+        <li>Government & Public Sector</li>
+        <li>Healthcare</li>
+        <li>Retail & E-commerce</li>
+        <li>Professional Services</li>
+      </ul>
+
+      <h3>Outcomes you can expect</h3>
+      <ul>
+        <li>Improved uptime and system reliability</li>
+        <li>Reduced IT operational costs</li>
+        <li>Faster issue resolution and proactive problem prevention</li>
+        <li>Peace of mind with 24/7 monitoring and support</li>
+      </ul>
+
+      <h3>Case Studies</h3>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Cloud Operations for a Retail Organization</h4>
+          <p>A retail organization needed reliable cloud operations to support its e-commerce platform. Gulo implemented proactive monitoring, automated alerting, and incident management processes.</p>
+          <p><strong>Result:</strong> 99.9% uptime, reduced downtime, and faster issue resolution.</p>
+        </div>
+        
+        <div class="card">
+          <h4>IT Infrastructure Support for a Public Sector Organization</h4>
+          <p>A public sector organization required ongoing IT support for its hybrid infrastructure. Gulo provided 24/7 monitoring, patch management, and helpdesk services.</p>
+          <p><strong>Result:</strong> Improved user satisfaction, reduced security vulnerabilities, and predictable IT costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Services -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Architecture Services</h2>
+      <p class="service-hook">Clear direction. Practical roadmaps. Architecture that actually gets built.</p>
+      
+      <p>Organizations often know they need to modernize—but lack a clear, realistic path forward. Our Architecture Services help translate business goals into actionable technology roadmaps, grounded in current-state realities and future-state ambition.</p>
+      
+      <p>We focus on fit-for-purpose architecture, avoiding overengineering while ensuring scalability, security, and long-term sustainability.</p>
+
+      <h3>What we do</h3>
+      <ul>
+        <li>Enterprise & solution architecture design</li>
+        <li>Current-state assessments and gap analysis</li>
+        <li>Technology and platform strategy</li>
+        <li>Cloud and hybrid architecture planning</li>
+        <li>Data, AI, and security architecture alignment</li>
+        <li>Multi-year roadmaps and execution plans</li>
+      </ul>
+
+      <h3>Industries we support</h3>
+      <ul>
+        <li>Government & Crown Corporations</li>
+        <li>Energy & Utilities</li>
+        <li>Healthcare</li>
+        <li>Retail & Logistics</li>
+      </ul>
+
+      <h3>Outcomes you can expect</h3>
+      <ul>
+        <li>Clear architectural direction aligned to business priorities</li>
+        <li>Reduced technical debt and rework</li>
+        <li>Roadmaps leadership can fund and execute</li>
+        <li>Stronger alignment between business, IT, and security teams</li>
+      </ul>
+
+      <h3>Case Studies</h3>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Enterprise Architecture Roadmap for a Public Sector Organization</h4>
+          <p>A public sector organization needed a clear modernization path across legacy systems, cloud services, and security controls. Gulo conducted a current-state assessment and delivered a phased architecture roadmap aligned to budget and operational constraints.</p>
+          <p><strong>Result:</strong> Executive clarity and a practical modernization plan that could be implemented incrementally.</p>
+        </div>
+        
+        <div class="card">
+          <h4>Cloud & Data Architecture Strategy for an Energy Company</h4>
+          <p>An energy company required a cohesive architecture strategy to support cloud migration, analytics, and AI initiatives. Gulo designed an integrated architecture covering infrastructure, data, and security with a realistic execution timeline.</p>
+          <p><strong>Result:</strong> Reduced fragmentation and a shared architectural vision across teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white;">
+    <div class="container text-center">
+      <h2 style="color: white;">Ready to get started?</h2>
+      <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
+        Let's discuss how we can help your organization achieve its goals.
+      </p>
+      <a href={`${base}contact`} class="btn btn-primary btn-large" style="background-color: white; color: #1e3a8a;">
+        Contact Us
+      </a>
+    </div>
+  </section>
+</BaseLayout>
