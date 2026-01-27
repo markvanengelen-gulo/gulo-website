@@ -618,6 +618,14 @@ footer {
   background-color: var(--color-gray-lighter);
 }
 
+.service-hook {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .mt-0 { margin-top: 0; }
 .mt-1 { margin-top: var(--spacing-sm); }
 .mt-2 { margin-top: var(--spacing-md); }
