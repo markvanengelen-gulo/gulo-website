@@ -314,7 +314,6 @@ nav {
 }
 
 .dropdown-menu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -327,10 +326,28 @@ nav {
   list-style: none;
   z-index: 1000;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s var(--transition-base);
+  transform: translateY(-10px);
 }
 
-.nav-dropdown:hover .dropdown-menu {
-  display: block;
+/* Desktop: Show on hover with smooth transition */
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s 0s;
+}
+
+/* Keep dropdown visible when hovering over it */
+.dropdown-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .dropdown-menu li {
@@ -653,9 +670,14 @@ footer {
     gap: var(--spacing-sm);
   }
   
-  /* Dropdown menu for mobile */
+  /* Dropdown menu for mobile - always visible, no hover needed */
   .dropdown-menu {
     position: relative;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
     box-shadow: none;
     border: none;
     margin-top: 0.25rem;
@@ -766,6 +788,83 @@ footer {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Service Section Boxes - Distinct styling for key sections */
+.service-section-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.service-box {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(30, 58, 138, 0.1);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+}
+
+.service-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.service-box:hover,
+.service-box:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  border-color: rgba(30, 58, 138, 0.2);
+}
+
+.service-box h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.service-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-box ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-dark-light);
+}
+
+.service-box ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.service-box ul li strong {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* Ensure good spacing in service sections */
+.service-section-boxes + .grid {
+  margin-top: var(--spacing-2xl);
 }
 
 /* Add smooth entrance animations - only for users who don't prefer reduced motion */
