@@ -314,7 +314,6 @@ nav {
 }
 
 .dropdown-menu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -328,24 +327,26 @@ nav {
   z-index: 1000;
   border: 1px solid rgba(0, 0, 0, 0.05);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--transition-base), transform var(--transition-base);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s var(--transition-base);
   transform: translateY(-10px);
 }
 
 /* Desktop: Show on hover with smooth transition */
 .nav-dropdown:hover .dropdown-menu,
 .nav-dropdown:focus-within .dropdown-menu {
-  display: block;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s 0s;
 }
 
 /* Keep dropdown visible when hovering over it */
 .dropdown-menu:hover {
-  display: block;
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -672,24 +673,17 @@ footer {
   /* Dropdown menu for mobile - always visible, no hover needed */
   .dropdown-menu {
     position: relative;
-    display: block;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: none;
+    transition: none;
     box-shadow: none;
     border: none;
     margin-top: 0.25rem;
     padding-left: 1rem;
     background-color: var(--color-gray-lighter);
     border-radius: var(--radius-sm);
-  }
-  
-  .nav-dropdown:hover .dropdown-menu,
-  .nav-dropdown:focus-within .dropdown-menu {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-    transform: none;
   }
   
   section {
@@ -810,7 +804,7 @@ footer {
   padding: var(--spacing-xl);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(30, 58, 138, 0.1);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   position: relative;
 }
 
@@ -825,7 +819,8 @@ footer {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-.service-box:hover {
+.service-box:hover,
+.service-box:focus-within {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
   border-color: rgba(30, 58, 138, 0.2);
