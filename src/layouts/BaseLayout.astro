@@ -85,46 +85,54 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </footer>
-    <script>
+    <script is:inline>
       /**
        * Dropdown menu toggle functionality for mobile devices
        * Toggles visibility of dropdown menu using data-active attribute
        */
 
       document.addEventListener('DOMContentLoaded', function() {
-        // Only apply click toggle on mobile devices (max-width: 768px)
-        const isMobile = () => window.innerWidth <= 768;
+        // Mobile breakpoint constant
+        var MOBILE_BREAKPOINT = 768;
+        var RESIZE_DEBOUNCE_MS = 150; // Debounce delay to optimize resize performance
         
-        const navDropdowns = document.querySelectorAll('.nav-dropdown');
+        // Only apply click toggle on mobile devices
+        var isMobile = function() { return window.innerWidth <= MOBILE_BREAKPOINT; };
+        
+        var navDropdowns = document.querySelectorAll('.nav-dropdown');
+        var toggleUpdateFns = [];
         
         // Add toggle buttons for mobile accessibility
-        navDropdowns.forEach(dropdown => {
-          const link = dropdown.querySelector('a');
+        navDropdowns.forEach(function(dropdown) {
+          var link = dropdown.querySelector('a');
+          var menuName = link ? (link.textContent || '').trim() : 'menu';
           
           if (link && link.parentElement) {
-            // Create a toggle button for mobile (hidden visually, but helps with navigation)
-            const toggleBtn = document.createElement('button');
-            toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+            // Create a toggle button for mobile
+            var toggleBtn = document.createElement('button');
+            toggleBtn.setAttribute('type', 'button');
+            toggleBtn.setAttribute('aria-label', 'Toggle ' + menuName + ' submenu');
+            toggleBtn.className = 'mobile-dropdown-toggle';
             toggleBtn.textContent = '▼';
-            toggleBtn.style.cssText = 'display: none; margin-left: 0.5rem; background: none; border: none; font-size: 0.8rem; cursor: pointer;';
             
             // Show toggle button only on mobile
-            const updateToggleVisibility = () => {
+            var updateToggleVisibility = function() {
               toggleBtn.style.display = isMobile() ? 'inline-block' : 'none';
             };
             updateToggleVisibility();
+            toggleUpdateFns.push(updateToggleVisibility);
             
             link.parentElement.insertBefore(toggleBtn, link.nextSibling);
             
             // Handle toggle button click
-            const toggleDropdown = (e: Event) => {
+            var toggleDropdown = function(e) {
               e.preventDefault();
               e.stopPropagation();
               
-              const isActive = dropdown.getAttribute('data-active') === 'true';
+              var isActive = dropdown.getAttribute('data-active') === 'true';
               
               // Close all other dropdowns first
-              navDropdowns.forEach(d => {
+              navDropdowns.forEach(function(d) {
                 if (d !== dropdown) {
                   d.setAttribute('data-active', 'false');
                   d.setAttribute('aria-expanded', 'false');
@@ -132,21 +140,12 @@ const base = import.meta.env.BASE_URL;
               });
               
               // Toggle current dropdown
-              const newState = !isActive;
+              var newState = !isActive;
               dropdown.setAttribute('data-active', String(newState));
               dropdown.setAttribute('aria-expanded', String(newState));
             };
             
             toggleBtn.addEventListener('click', toggleDropdown);
-            
-            // On mobile, clicking the link navigates; use toggle button to open menu
-            // On desktop, let the link work normally
-            link.addEventListener('click', function() {
-              // Don't interfere with desktop behavior
-              if (!isMobile()) {
-                return;
-              }
-            });
             
             // Keyboard accessibility
             toggleBtn.addEventListener('keydown', function(e) {
@@ -154,29 +153,31 @@ const base = import.meta.env.BASE_URL;
                 toggleDropdown(e);
               }
             });
-            
-            // Update toggle button visibility on resize
-            let resizeTimer: number | undefined;
-            window.addEventListener('resize', function() {
-              clearTimeout(resizeTimer);
-              resizeTimer = window.setTimeout(() => {
-                updateToggleVisibility();
-                if (!isMobile()) {
-                  navDropdowns.forEach(d => {
-                    d.setAttribute('data-active', 'false');
-                    d.setAttribute('aria-expanded', 'false');
-                  });
-                }
-              }, 150);
-            });
           }
+        });
+        
+        // Single resize handler for all dropdowns
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            // Update all toggle button visibilities
+            toggleUpdateFns.forEach(function(fn) { fn(); });
+            // Reset dropdown state when resizing to desktop
+            if (!isMobile()) {
+              navDropdowns.forEach(function(d) {
+                d.setAttribute('data-active', 'false');
+                d.setAttribute('aria-expanded', 'false');
+              });
+            }
+          }, RESIZE_DEBOUNCE_MS);
         });
         
         // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
-          const target = e.target;
+          var target = e.target;
           if (isMobile() && target && target instanceof Element && !target.closest('.nav-dropdown')) {
-            navDropdowns.forEach(dropdown => {
+            navDropdowns.forEach(function(dropdown) {
               dropdown.setAttribute('data-active', 'false');
               dropdown.setAttribute('aria-expanded', 'false');
             });

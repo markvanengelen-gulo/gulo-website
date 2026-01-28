@@ -698,13 +698,36 @@ footer {
     border-radius: var(--radius-sm);
   }
   
+  /* Mobile dropdown toggle button */
+  .mobile-dropdown-toggle {
+    display: none;
+    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--color-dark-light);
+    padding: 0.25rem;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+  }
+  
+  .mobile-dropdown-toggle:hover {
+    color: var(--color-primary);
+  }
+  
   /* Show dropdown when parent has data-active attribute */
   .nav-dropdown[data-active="true"] .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    max-height: 1000px;
+    max-height: none;
     pointer-events: auto;
     transition: opacity var(--transition-base), max-height var(--transition-base), visibility 0s 0s;
+  }
+  
+  /* Rotate arrow when dropdown is active */
+  .nav-dropdown[data-active="true"] .mobile-dropdown-toggle {
+    transform: rotate(180deg);
   }
   
   section {
