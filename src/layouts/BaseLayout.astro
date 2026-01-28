@@ -28,7 +28,7 @@ const base = import.meta.env.BASE_URL;
         <ul class="nav-links">
           <li><a href={base}>Home</a></li>
           <li><a href={`${base}about`}>About</a></li>
-          <li class="nav-dropdown">
+          <li class="nav-dropdown" data-active="false">
             <a href={`${base}services`}>Services</a>
             <ul class="dropdown-menu">
               <li><a href={`${base}services#data-ai`}>Data & AI Project Services</a></li>
@@ -85,5 +85,63 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </footer>
+    <script>
+      /**
+       * Dropdown menu toggle functionality for mobile devices
+       * Toggles visibility of dropdown menu using data-active attribute
+       */
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Only apply click toggle on mobile devices (max-width: 768px)
+        const isMobile = () => window.innerWidth <= 768;
+        
+        const navDropdowns = document.querySelectorAll('.nav-dropdown');
+        
+        navDropdowns.forEach(dropdown => {
+          const link = dropdown.querySelector('a');
+          
+          if (link) {
+            link.addEventListener('click', function(e) {
+              // Only prevent default and toggle on mobile
+              if (isMobile()) {
+                e.preventDefault();
+                
+                const isActive = dropdown.getAttribute('data-active') === 'true';
+                
+                // Close all other dropdowns first
+                navDropdowns.forEach(d => {
+                  if (d !== dropdown) {
+                    d.setAttribute('data-active', 'false');
+                  }
+                });
+                
+                // Toggle current dropdown
+                dropdown.setAttribute('data-active', isActive ? 'false' : 'true');
+              }
+              // On desktop, let the link work normally
+            });
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          const target = e.target;
+          if (isMobile() && target && target instanceof Element && !target.closest('.nav-dropdown')) {
+            navDropdowns.forEach(dropdown => {
+              dropdown.setAttribute('data-active', 'false');
+            });
+          }
+        });
+        
+        // Reset data-active on resize to desktop
+        window.addEventListener('resize', function() {
+          if (!isMobile()) {
+            navDropdowns.forEach(dropdown => {
+              dropdown.setAttribute('data-active', 'false');
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
