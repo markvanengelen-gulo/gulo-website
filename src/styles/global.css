@@ -200,6 +200,25 @@ a:hover {
   box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
 }
 
+.btn-primary:active,
+.btn-primary:focus {
+  color: var(--color-white);
+}
+
+/* White button variant - maintain background color */
+.btn-white {
+  background-color: white !important;
+}
+
+.btn-white:hover {
+  background-color: #f8f9fa !important;
+}
+
+.btn-white:active,
+.btn-white:focus {
+  background-color: white !important;
+}
+
 .btn-secondary {
   background-color: transparent;
   color: var(--color-primary);
@@ -287,6 +306,55 @@ nav {
 
 .nav-links a:hover::after {
   width: 80%;
+}
+
+/* Dropdown Menu Styles */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  min-width: 250px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) 0;
+  margin-top: 0.5rem;
+  list-style: none;
+  z-index: 1000;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--color-dark-light);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  border-radius: 0;
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--color-gray-lighter);
+  color: var(--color-primary);
+  transform: translateX(0.25rem);
 }
 
 /* Hero Section */
@@ -585,8 +653,38 @@ footer {
     gap: var(--spacing-sm);
   }
   
+  /* Dropdown menu for mobile */
+  .dropdown-menu {
+    position: relative;
+    box-shadow: none;
+    border: none;
+    margin-top: 0.25rem;
+    padding-left: 1rem;
+    background-color: var(--color-gray-lighter);
+    border-radius: var(--radius-sm);
+  }
+  
   section {
     padding: var(--spacing-2xl) 0;
+  }
+  
+  /* Better bullet point formatting on mobile */
+  section .container > ul,
+  section .container > h3 + ul {
+    padding-left: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  section .container > ul li,
+  section .container > h3 + ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    padding-left: 0.5rem;
+  }
+  
+  section h3 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
   }
   
   .grid-2,
