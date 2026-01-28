@@ -343,6 +343,16 @@ nav {
   transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s 0s;
 }
 
+/* Prevent desktop hover on mobile - only use data-active */
+@media (max-width: 768px) {
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 /* Keep dropdown visible when hovering over it */
 .dropdown-menu:hover {
   opacity: 1;
@@ -670,20 +680,54 @@ footer {
     gap: var(--spacing-sm);
   }
   
-  /* Dropdown menu for mobile - always visible, no hover needed */
+  /* Dropdown menu for mobile - hidden by default, shown on activation */
   .dropdown-menu {
     position: relative;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
     transform: none;
-    transition: none;
+    transition: opacity var(--transition-base), max-height var(--transition-base), visibility 0s var(--transition-base);
     box-shadow: none;
     border: none;
     margin-top: 0.25rem;
     padding-left: 1rem;
     background-color: var(--color-gray-lighter);
     border-radius: var(--radius-sm);
+  }
+  
+  /* Mobile dropdown toggle button */
+  .mobile-dropdown-toggle {
+    display: none;
+    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--color-dark-light);
+    padding: 0.25rem;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+  }
+  
+  .mobile-dropdown-toggle:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Show dropdown when parent has data-active attribute */
+  .nav-dropdown[data-active="true"] .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    max-height: none;
+    pointer-events: auto;
+    transition: opacity var(--transition-base), max-height var(--transition-base), visibility 0s 0s;
+  }
+  
+  /* Rotate arrow when dropdown is active */
+  .nav-dropdown[data-active="true"] .mobile-dropdown-toggle {
+    transform: rotate(180deg);
   }
   
   section {
