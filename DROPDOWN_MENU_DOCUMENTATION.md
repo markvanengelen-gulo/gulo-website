@@ -33,6 +33,8 @@ This document describes the existing hover-activated dropdown menu implementatio
 **Location**: `src/styles/global.css` (lines 311-376)
 
 #### Desktop Dropdown Behavior
+**Location**: `src/styles/global.css` (lines 312-375)
+
 ```css
 .dropdown-menu {
   position: absolute;
@@ -41,7 +43,7 @@ This document describes the existing hover-activated dropdown menu implementatio
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 250ms, transform 250ms, visibility 0s 250ms;
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s var(--transition-base);
   transform: translateY(-10px);
 }
 
@@ -51,7 +53,7 @@ This document describes the existing hover-activated dropdown menu implementatio
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
-  transition: opacity 250ms, transform 250ms, visibility 0s 0s;
+  transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s 0s;
 }
 
 .dropdown-menu:hover {
@@ -61,14 +63,18 @@ This document describes the existing hover-activated dropdown menu implementatio
 }
 ```
 
+> **Note**: `var(--transition-base)` resolves to `250ms cubic-bezier(0.4, 0, 0.2, 1)` as defined in the CSS variables.
+
 **Key Features**:
 - **Pure CSS** - No JavaScript required
-- **Smooth transitions** - Opacity and transform animations (250ms)
+- **Smooth transitions** - Opacity and transform animations (250ms with easing)
 - **Accessibility** - Uses `:focus-within` for keyboard navigation
 - **Absolute positioning** - Doesn't disrupt page layout
 - **Hover persistence** - Menu stays visible when hovering over submenu items
 
 #### Mobile Responsive Behavior
+**Location**: `src/styles/global.css` (lines 674-687)
+
 ```css
 @media (max-width: 768px) {
   .dropdown-menu {
@@ -160,7 +166,7 @@ The implementation uses standard CSS features supported by all modern browsers:
 
 - **No JavaScript**: Zero runtime overhead
 - **CSS-only animations**: Hardware-accelerated transforms
-- **Minimal CSS**: ~65 lines for complete implementation
+- **Minimal CSS**: ~78 lines for complete implementation (64 lines desktop + 14 lines mobile)
 - **No external dependencies**: Pure CSS solution
 
 ## Testing Performed
@@ -173,11 +179,13 @@ The implementation uses standard CSS features supported by all modern browsers:
 5. ✅ Keyboard navigation - Focus-within works correctly
 
 ### Visual Testing
-Screenshots captured:
-1. Initial state (dropdown hidden)
-2. Hover state (dropdown visible)
-3. Submenu item hover (hover effect on individual item)
-4. Mobile view (responsive layout)
+Screenshots were captured and verified:
+1. Initial state (dropdown hidden) - Confirmed dropdown is not visible by default
+2. Hover state (dropdown visible) - Confirmed dropdown appears on Services hover
+3. Submenu item hover (hover effect on individual item) - Confirmed hover styles apply
+4. Mobile view (responsive layout) - Confirmed mobile-optimized display
+
+Screenshots are referenced in the PR description.
 
 ## Maintenance
 
