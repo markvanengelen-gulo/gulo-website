@@ -343,6 +343,16 @@ nav {
   transition: opacity var(--transition-base), transform var(--transition-base), visibility 0s 0s;
 }
 
+/* Prevent desktop hover on mobile - only use data-active */
+@media (max-width: 768px) {
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 /* Keep dropdown visible when hovering over it */
 .dropdown-menu:hover {
   opacity: 1;
@@ -692,7 +702,7 @@ footer {
   .nav-dropdown[data-active="true"] .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    max-height: 500px;
+    max-height: 1000px;
     pointer-events: auto;
     transition: opacity var(--transition-base), max-height var(--transition-base), visibility 0s 0s;
   }
