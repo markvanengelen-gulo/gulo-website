@@ -10,97 +10,112 @@ const base = import.meta.env.BASE_URL;
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Transform Your Business with AI</h1>
-      <p>Harness the power of artificial intelligence to drive innovation, automate processes, and unlock unprecedented insights from your data.</p>
+      <h1>Canadian-Built AI That Delivers Real Outcomes</h1>
+      <p>Practical technology, data, AI, and cybersecurity services designed for Canadian organizations — from strategy to production, grounded in security, compliance, and measurable results.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href={`${base}contact`} class="btn btn-primary btn-large">Get Started</a>
-        <a href={`${base}services`} class="btn btn-secondary btn-large">Learn More</a>
+        <a href={`${base}services`} class="btn btn-primary btn-large">Explore Our Services</a>
+        <a href={`${base}about`} class="btn btn-secondary btn-large">About Gulo AI</a>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- How We Work Section -->
   <section>
     <div class="container">
-      <h2 class="section-title">Why Choose Gulo AI?</h2>
-      <p class="section-subtitle">We deliver cutting-edge AI solutions tailored to your business needs</p>
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-subtitle">Our approach combines Canadian insight with practical execution</p>
       
       <div class="grid grid-3">
         <div class="card">
-          <div class="feature-icon">🚀</div>
-          <h3>Innovation First</h3>
-          <p>Stay ahead of the curve with the latest AI technologies and methodologies.</p>
+          <h3>Canadian by Design</h3>
+          <p>Built and operated in Canada, with a strong focus on data sovereignty, privacy, and trust.</p>
         </div>
         
         <div class="card">
-          <div class="feature-icon">⚡</div>
-          <h3>Fast Implementation</h3>
-          <p>Get up and running quickly with our streamlined deployment process.</p>
+          <h3>Outcome-Focused</h3>
+          <p>We prioritize results over hype — solving real problems with fit-for-purpose technology.</p>
         </div>
         
         <div class="card">
-          <div class="feature-icon">🎯</div>
-          <h3>Results Driven</h3>
-          <p>Measurable outcomes that directly impact your bottom line.</p>
+          <h3>Practical Execution</h3>
+          <p>Our solutions integrate into existing environments and workflows with minimal friction.</p>
         </div>
-        
-        <div class="card">
-          <div class="feature-icon">🔒</div>
-          <h3>Enterprise Security</h3>
-          <p>Bank-grade security measures to protect your sensitive data.</p>
-        </div>
-        
-        <div class="card">
-          <div class="feature-icon">📊</div>
-          <h3>Data Analytics</h3>
-          <p>Turn raw data into actionable insights with advanced analytics.</p>
-        </div>
-        
-        <div class="card">
-          <div class="feature-icon">🤝</div>
-          <h3>Expert Support</h3>
-          <p>Dedicated team of AI specialists ready to assist you 24/7.</p>
-        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={`${base}about`} class="btn btn-primary">Learn more about us →</a>
       </div>
     </div>
   </section>
 
-  <!-- Services Overview -->
+  <!-- What We Do - Services Preview -->
   <section class="bg-light">
     <div class="container">
-      <h2 class="section-title">Our Services</h2>
+      <h2 class="section-title">What We Do</h2>
       <p class="section-subtitle">Practical technology, data, AI, and cybersecurity services that deliver measurable outcomes</p>
       
       <div class="grid grid-2">
         <div class="card">
           <h3>Data & AI Project Services</h3>
           <p>From strategy to production — AI that actually delivers results. We help bridge the gap by designing, building, and operationalizing data and AI solutions that are secure, scalable, and aligned to real business needs.</p>
-          <a href={`${base}services#data-ai`} class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#data-ai`} class="btn btn-primary">Learn more →</a>
         </div>
         
         <div class="card">
           <h3>Cybersecurity Services</h3>
           <p>Security that enables progress — not just compliance. We help organizations build secure, resilient environments that support their strategic objectives with a risk-based, outcome-focused approach.</p>
-          <a href={`${base}services#cybersecurity`} class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#cybersecurity`} class="btn btn-primary">Learn more →</a>
         </div>
         
         <div class="card">
           <h3>Managed IT Services</h3>
           <p>Reliable, proactive IT management — so you can focus on what matters. We provide secure, proactive support for your infrastructure, applications, and operations, handling the complexity so your team can focus on delivering value.</p>
-          <a href={`${base}services#managed-it`} class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#managed-it`} class="btn btn-primary">Learn more →</a>
         </div>
         
         <div class="card">
           <h3>Architecture Services</h3>
           <p>Clear direction. Practical roadmaps. Architecture that actually gets built. We help translate business goals into actionable technology roadmaps, grounded in current-state realities and future-state ambition.</p>
-          <a href={`${base}services#architecture`} class="btn btn-primary">Learn More →</a>
+          <a href={`${base}services#architecture`} class="btn btn-primary">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
+  <!-- Blog Preview Section -->
   <section>
+    <div class="container">
+      <h2 class="section-title">Latest Insights</h2>
+      <p class="section-subtitle">Stay updated with trends, best practices, and AI insights</p>
+      
+      <div class="grid grid-2">
+        <a href={`${base}blog/ai-transformation-guide`} class="blog-card">
+          <div class="blog-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">The Complete Guide to AI Transformation</h3>
+            <p class="blog-card-excerpt">Learn how to successfully implement AI in your organization with our comprehensive step-by-step guide.</p>
+            <div class="blog-card-meta">January 15, 2026 • 8 min read</div>
+          </div>
+        </a>
+
+        <a href={`${base}blog/machine-learning-best-practices`} class="blog-card">
+          <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Machine Learning Best Practices for 2026</h3>
+            <p class="blog-card-excerpt">Discover the latest techniques and methodologies for building robust machine learning systems.</p>
+            <div class="blog-card-meta">January 10, 2026 • 6 min read</div>
+          </div>
+        </a>
+      </div>
+      
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={`${base}blog`} class="btn btn-primary">View All Articles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-light">
     <div class="container">
       <h2 class="section-title">Proven Track Record</h2>
       <div class="grid grid-4">
@@ -127,12 +142,12 @@ const base = import.meta.env.BASE_URL;
   <!-- CTA Section -->
   <section style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white;">
     <div class="container text-center">
-      <h2 style="color: white;">Ready to Transform Your Business?</h2>
+      <h2 style="color: white;">Ready to Move Forward?</h2>
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
-        Let's discuss how AI can drive innovation in your organization.
+        Whether you're exploring AI readiness, strengthening security, or modernizing infrastructure — let's discuss how we can help your organization achieve measurable outcomes.
       </p>
       <a href={`${base}contact`} class="btn btn-primary btn-large btn-white" style="color: #1e3a8a;">
-        Schedule a Consultation
+        Get in Touch
       </a>
     </div>
   </section>
