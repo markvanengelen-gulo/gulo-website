@@ -109,8 +109,8 @@ const { articleId } = Astro.props;
       const likeCountKey = 'likes_' + articleId;
       
       // Initialize state from localStorage
-      var isLiked = localStorage.getItem(likeStateKey) === 'true';
-      var currentLikes = parseInt(localStorage.getItem(likeCountKey) || '0', 10);
+      let isLiked = localStorage.getItem(likeStateKey) === 'true';
+      let currentLikes = parseInt(localStorage.getItem(likeCountKey) || '0', 10);
       
       // Update UI based on stored state
       function updateUI() {
