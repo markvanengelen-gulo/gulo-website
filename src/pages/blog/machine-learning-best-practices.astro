@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LikeButton from '../../components/LikeButton.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
   title="Machine Learning Best Practices for 2026 - Gulo AI Blog"
   description="Discover the latest techniques and methodologies for building robust machine learning systems."
+  keywords="machine learning, ML best practices, MLOps, responsible AI, data-centric AI, model deployment, AI ethics"
+  type="article"
+  publishDate="2026-01-10T00:00:00Z"
 >
   <!-- Article Header -->
   <section class="hero" style="padding: 3rem 0;">
@@ -21,6 +25,8 @@ const base = import.meta.env.BASE_URL;
   <!-- Article Content -->
   <section>
     <div class="container" style="max-width: 800px;">
+      <LikeButton articleId="machine-learning-best-practices" />
+      
       <article style="color: var(--color-gray); line-height: 1.8;">
         <h2>Introduction</h2>
         <p>The machine learning landscape continues to evolve rapidly, with new techniques, tools, and best practices emerging regularly. As we move through 2026, several key practices have proven essential for building robust, scalable, and ethical ML systems.</p>
