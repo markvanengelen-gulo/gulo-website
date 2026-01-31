@@ -1,0 +1,148 @@
+---
+interface Props {
+  articleId: string;
+}
+
+const { articleId } = Astro.props;
+---
+
+<div class="like-button-container" data-article-id={articleId}>
+  <button class="like-button" aria-label="Like this article">
+    <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+    <span class="like-text">Like</span>
+  </button>
+  <span class="like-count">0</span>
+</div>
+
+<style>
+  .like-button-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--color-gray-lighter);
+    border-radius: var(--radius-lg);
+    width: fit-content;
+  }
+
+  .like-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-gray-light);
+    border-radius: var(--radius-md);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .like-button:hover {
+    background: var(--color-gray-light);
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+  }
+
+  .like-button.liked {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-color: #f5576c;
+    color: white;
+  }
+
+  .like-button.liked:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .heart-icon {
+    width: 20px;
+    height: 20px;
+    transition: all var(--transition-base);
+  }
+
+  .like-button.liked .heart-icon {
+    fill: currentColor;
+    animation: heartbeat 0.3s ease-in-out;
+  }
+
+  .like-count {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gray);
+    padding: 0 0.5rem;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+  }
+</style>
+
+<script is:inline>
+  // Like button functionality with localStorage persistence
+  document.addEventListener('DOMContentLoaded', function() {
+    const likeContainers = document.querySelectorAll('.like-button-container');
+    
+    likeContainers.forEach(function(container) {
+      const articleId = container.getAttribute('data-article-id');
+      if (!articleId) return;
+      
+      const button = container.querySelector('.like-button');
+      const likeText = container.querySelector('.like-text');
+      const likeCount = container.querySelector('.like-count');
+      
+      if (!button || !likeText || !likeCount) return;
+      
+      // Storage keys
+      const likeStateKey = 'liked_' + articleId;
+      const likeCountKey = 'likes_' + articleId;
+      
+      // Initialize state from localStorage
+      let isLiked = localStorage.getItem(likeStateKey) === 'true';
+      let currentLikes = parseInt(localStorage.getItem(likeCountKey) || '0', 10);
+      
+      // Update UI based on stored state
+      function updateUI() {
+        if (isLiked) {
+          button.classList.add('liked');
+          likeText.textContent = 'Liked';
+        } else {
+          button.classList.remove('liked');
+          likeText.textContent = 'Like';
+        }
+        likeCount.textContent = String(currentLikes);
+      }
+      
+      updateUI();
+      
+      // Handle button click
+      button.addEventListener('click', function() {
+        isLiked = !isLiked;
+        
+        if (isLiked) {
+          currentLikes += 1;
+        } else {
+          currentLikes = Math.max(0, currentLikes - 1);
+        }
+        
+        // Save to localStorage
+        localStorage.setItem(likeStateKey, String(isLiked));
+        localStorage.setItem(likeCountKey, String(currentLikes));
+        
+        // Update UI
+        updateUI();
+      });
+    });
+  });
+</script>

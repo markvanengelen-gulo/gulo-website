@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LikeButton from '../../components/LikeButton.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
   title="The Complete Guide to AI Transformation - Gulo AI Blog"
   description="Learn how to successfully implement AI in your organization with our comprehensive step-by-step guide."
+  keywords="AI transformation, artificial intelligence implementation, AI strategy, machine learning adoption, digital transformation, AI best practices"
+  type="article"
+  publishDate="2026-01-15T00:00:00Z"
 >
   <!-- Article Header -->
   <section class="hero" style="padding: 3rem 0;">
@@ -21,6 +25,8 @@ const base = import.meta.env.BASE_URL;
   <!-- Article Content -->
   <section>
     <div class="container" style="max-width: 800px;">
+      <LikeButton articleId="ai-transformation-guide" />
+      
       <article style="color: var(--color-gray); line-height: 1.8;">
         <h2>Introduction</h2>
         <p>Artificial Intelligence is no longer a futuristic concept—it's a present-day reality that's transforming businesses across every industry. However, successfully implementing AI requires more than just buying the latest technology. It demands a strategic approach, organizational alignment, and a clear understanding of your business objectives.</p>
