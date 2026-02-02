@@ -4,13 +4,13 @@ Official website for Gulo AI - Advanced AI Solutions for Business.
 
 ## 🌐 Live Site
 
-The website is deployed on GitHub Pages at: https://markvanengelen-gulo.github.io/gulo-website/
+The website is deployed at: https://gulo.ai
 
 ## 🚀 Technology Stack
 
 - **Framework:** [Astro](https://astro.build/) v5.15.8
 - **Language:** TypeScript
-- **Hosting:** GitHub Pages
+- **Hosting:** GitHub Pages with Custom Domain (gulo.ai)
 - **Deployment:** Automated via GitHub Actions
 
 ## 📁 Project Structure
@@ -89,7 +89,7 @@ The site is automatically deployed to GitHub Pages when changes are pushed to th
 1. Push changes to `main` branch
 2. GitHub Actions workflow builds the site using Astro
 3. Built files from `dist/` directory are deployed to GitHub Pages
-4. Site is accessible at https://markvanengelen-gulo.github.io/gulo-website/
+4. Site is accessible at https://gulo.ai
 
 ### Manual Deployment
 
@@ -126,7 +126,7 @@ const base = import.meta.env.BASE_URL;
 
 ### Internal Links
 
-Always use the `base` variable for internal links to ensure compatibility with GitHub Pages:
+Always use the `base` variable for internal links to ensure compatibility:
 
 ```astro
 ---
@@ -139,26 +139,40 @@ const base = import.meta.env.BASE_URL;
 
 ## 🔧 Configuration
 
-### Base Path
+### Custom Domain Setup
 
-The site is configured for GitHub Pages subdirectory deployment:
-- **Site URL:** `https://markvanengelen-gulo.github.io`
-- **Base Path:** `/gulo-website/`
+The site is configured for custom domain deployment (gulo.ai):
+- **Site URL:** `https://gulo.ai`
+- **Base Path:** `/`
 
 These are configured in `astro.config.mjs`.
 
-### Changing Domain
+The `public/CNAME` file contains the custom domain and is automatically deployed with the site.
 
-To use a custom domain:
+### Switching Between Custom Domain and GitHub Pages Subdirectory
+
+**For custom domain (current setup):**
 1. Update `astro.config.mjs`:
    ```js
    export default defineConfig({
-     site: 'https://yourdomain.com',
+     site: 'https://gulo.ai',
      base: '/',
    });
    ```
 2. Add a `CNAME` file to `public/` directory with your domain
-3. Configure your DNS settings
+3. Configure your DNS settings to point to GitHub Pages
+
+**For GitHub Pages subdirectory deployment:**
+1. Update `astro.config.mjs`:
+   ```js
+   export default defineConfig({
+     site: 'https://markvanengelen-gulo.github.io',
+     base: '/gulo-website/',
+   });
+   ```
+2. Remove the `CNAME` file from `public/` directory
+
+After changing the configuration, rebuild the site with `npm run build` before deploying.
 
 ## 🎨 Styling
 
