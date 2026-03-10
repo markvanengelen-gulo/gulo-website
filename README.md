@@ -201,6 +201,40 @@ The site includes:
 
 For questions or issues with the website, please contact info@gulo.ai
 
+## ✉️ Contact Form (No mailto)
+
+The contact form at `/contact` submits messages in the background using Web3Forms and **does not** open the visitor's email client.
+
+### Destination email
+The destination email address is configured in your Web3Forms account when you create the access key. The form also includes a hidden `email_to` field in `src/pages/contact.astro`.
+
+### Environment variables / secrets
+Store the Web3Forms key as a GitHub Actions secret so it is never committed to the repository:
+
+| Secret name | Description |
+|---|---|
+| `WEB3FORMS_ACCESS_KEY` | Web3Forms access key — injected at build time as `PUBLIC_WEB3FORMS_ACCESS_KEY` |
+
+**To add the secret:**
+1. Repository → **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
+2. Name: `WEB3FORMS_ACCESS_KEY`, Value: your key from [web3forms.com](https://web3forms.com/)
+
+### How to test locally
+1. Create a `.env` file at the project root (do not commit it):
+   ```
+   PUBLIC_WEB3FORMS_ACCESS_KEY=your_key_here
+   ```
+2. `npm ci && npm run dev`
+3. Visit `http://localhost:4321/contact` and submit a test message
+4. Confirm it arrives in your inbox
+
+### How to test in production
+1. Push to `main` — GitHub Actions deploys automatically
+2. Visit `https://gulo.ai/contact/`
+3. Submit a test message and confirm it arrives in your inbox
+
+See [CONTACT_FORM_SETUP.md](./CONTACT_FORM_SETUP.md) for full setup details.
+
 ## 📄 License
 
 All rights reserved © 2026 Gulo AI

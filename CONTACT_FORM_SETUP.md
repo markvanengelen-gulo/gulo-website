@@ -1,7 +1,7 @@
 # Contact Form Email Setup
 
 ## Overview
-The contact form uses [Web3Forms](https://web3forms.com/) to send emails directly to `mark.vanengelen@gulo.ai` without requiring a backend server. This is ideal for static sites hosted on GitHub Pages.
+The contact form submits messages **in the background** to [Web3Forms](https://web3forms.com/) and does **not** use `mailto:` or open the visitor's email client. This works on static hosting (GitHub Pages) without needing a backend server.
 
 ## Setup Instructions
 
@@ -13,52 +13,56 @@ The contact form uses [Web3Forms](https://web3forms.com/) to send emails directl
 4. Verify the email address (check your inbox for a verification email)
 5. Copy the access key provided
 
-### 2. Configure the Contact Form
+### 2. Configure the Access Key (GitHub Pages / GitHub Actions)
 
-1. Open `src/pages/contact.astro`
-2. Find the line with `<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">`
-3. Replace `YOUR_ACCESS_KEY_HERE` with your actual Web3Forms access key
-4. Save the file
+**Do not commit a real key to the repository.** Instead, inject it at build time via a GitHub Actions secret:
+
+1. Go to your repository → **Settings** → **Secrets and variables** → **Actions**
+2. Click **New repository secret**
+3. Name: `WEB3FORMS_ACCESS_KEY`
+4. Value: paste your Web3Forms access key
+5. Click **Add secret**
+
+The deploy workflow (`deploy.yml`) passes this secret to the Astro build as `PUBLIC_WEB3FORMS_ACCESS_KEY`, and `src/pages/contact.astro` reads it via `import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY`.
 
 ### 3. Deploy
 
-Once you've updated the access key:
-- Commit and push your changes to the main branch
-- GitHub Actions will automatically build and deploy the site
-- The contact form will now send emails to `mark.vanengelen@gulo.ai`
+Push to `main` — GitHub Actions will build and deploy with the access key injected.
 
 ## Features
 
-✅ **Email Notifications**: Form submissions are sent directly to `mark.vanengelen@gulo.ai`
-✅ **Loading Indicator**: Shows "Sending..." while the form is being submitted
-✅ **Success/Error Messages**: Users receive clear feedback after submission
-✅ **Form Validation**: All required fields are validated before submission
-✅ **Fallback Support**: If Web3Forms is not configured, the form falls back to mailto links
+✅ **Background submission** — no redirect, no email client popup  
+✅ **Shows "Message Sent Successfully."** after successful submission  
+✅ **Shows "Something went wrong. Please try again."** on failure  
+✅ **Loading indicator** — button disabled and shows "Sending..." while submitting  
+✅ **Form cleared** on success  
+✅ **Required field validation** before submission  
+✅ **Honeypot anti-spam** — hidden field checked client-side  
+✅ **Appointment modal** also uses background submission (no `mailto:`)  
+❌ **No `mailto:` fallback** — by design, the form never opens an email client
 
 ## Testing
 
 ### Development Testing
 1. Run `npm run dev` to start the development server
-2. Navigate to the contact page at `http://localhost:4321/gulo-website/contact`
+2. Navigate to the contact page at `http://localhost:4321/contact`
 3. Fill out the form and click "Send Message"
-4. Check the configured email address for the submission
+4. If `PUBLIC_WEB3FORMS_ACCESS_KEY` is not set locally, set it in a `.env` file (do not commit): `PUBLIC_WEB3FORMS_ACCESS_KEY=your_key_here`
+5. Check the configured email address for the submission
 
 ### Production Testing
 1. After deploying to GitHub Pages
-2. Visit the live site contact page
-3. Submit a test form
+2. Visit `https://gulo.ai/contact/`
+3. Submit a test message
 4. Verify the email is received at `mark.vanengelen@gulo.ai`
 
 ## Troubleshooting
 
 ### Form not sending emails
-- Verify the access key is correctly configured
+- Verify the `WEB3FORMS_ACCESS_KEY` GitHub Actions secret is set correctly
 - Check that you verified the email address in Web3Forms
+- Open browser DevTools → Network tab, look for the POST to `https://api.web3forms.com/submit`
 - Check browser console for any JavaScript errors
-- Ensure the email address `mark.vanengelen@gulo.ai` is correct
-
-### Fallback to mailto
-If the access key is not configured or is set to `YOUR_ACCESS_KEY_HERE`, the form will fall back to opening the user's default email client with a pre-filled message.
 
 ## Web3Forms Benefits
 - ✨ Free for up to 250 submissions/month
@@ -67,6 +71,3 @@ If the access key is not configured or is set to `YOUR_ACCESS_KEY_HERE`, the for
 - 📧 Email notifications with all form data
 - 🛡️ Spam protection included
 - 📊 Optional dashboard for tracking submissions
-
-## Alternative: mailto Fallback
-If Web3Forms is not configured, the form automatically falls back to using `mailto:` links. This opens the user's default email client with a pre-filled message, which provides a seamless experience even without the Web3Forms setup.
