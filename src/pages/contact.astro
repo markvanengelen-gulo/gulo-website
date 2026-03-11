@@ -24,7 +24,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
         <!-- Contact Form -->
         <div>
           <h2>Send Us a Message</h2>
-          <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
             <!-- Web3Forms access key — set PUBLIC_WEB3FORMS_ACCESS_KEY in GitHub Actions secrets -->
             <input type="hidden" name="access_key" value={web3formsKey}>
             <!-- Prevent Web3Forms default redirect; we handle the response in JS -->
@@ -157,7 +157,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
       <h2>Schedule Appointment</h2>
       <p>Please fill in your information and select your preferred dates and times.</p>
       
-      <form id="appointment-form" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
+      <form id="appointment-form" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
         <!-- Web3Forms access key for appointment submissions -->
         <input type="hidden" name="access_key" value={web3formsKey}>
         <input type="hidden" name="redirect" value="false">
@@ -307,6 +307,13 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
           return;
         }
 
+        // Guard: missing or unconfigured access key
+        const accessKey = String(formData.get('access_key') ?? '').trim();
+        if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+          setContactMessage('Contact form is temporarily unavailable. Please email info@gulo.ai', 'error');
+          return;
+        }
+
         // Show loading state
         submitBtn.disabled = true;
         buttonText.style.display = 'none';
@@ -328,7 +335,9 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
           // Exact success text required by spec
           setContactMessage('Message Sent Successfully.', 'success');
           contactForm.reset();
-        } catch (_err) {
+        } catch (err) {
+          const errMsg = err instanceof Error ? err.message : String(err);
+          console.error('[Contact Form] Submission failed:', errMsg);
           setContactMessage('Something went wrong. Please try again.', 'error');
         } finally {
           submitBtn.disabled = false;
@@ -411,6 +420,13 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
           return;
         }
 
+        // Guard: missing or unconfigured access key
+        const accessKey = String(formData.get('access_key') ?? '').trim();
+        if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+          setAptMessage('Appointment form is temporarily unavailable. Please email info@gulo.ai', 'error');
+          return;
+        }
+
         // Build a readable message body from individual fields
         const name = formData.get('apt-name');
         const email = formData.get('apt-email');
@@ -453,7 +469,9 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'YOUR_WEB3FO
             if (modal) modal.style.display = 'none';
             aptFormMessage.style.display = 'none';
           }, 2500);
-        } catch (_err) {
+        } catch (err) {
+          const errMsg = err instanceof Error ? err.message : String(err);
+          console.error('[Appointment Form] Submission failed:', errMsg);
           setAptMessage('Something went wrong. Please try again.', 'error');
         } finally {
           aptSubmitBtn.disabled = false;
