@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 // Inject Web3Forms access key at build time via PUBLIC_WEB3FORMS_ACCESS_KEY env var.
 // Set this as a GitHub Actions secret (WEB3FORMS_ACCESS_KEY) and pass it during the build step.
-const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? 'b3871ef6-a3ac-4ce5-b86f-bc1badbd53df';
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3ac-4ce5-b86f-bc1badbd53df';
 ---
 
 <BaseLayout 
