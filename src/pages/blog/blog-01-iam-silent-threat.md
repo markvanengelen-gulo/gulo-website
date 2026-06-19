@@ -3,6 +3,10 @@ layout: ../../layouts/BaseLayout.astro
 title: "The Silent Threat Inside Your AWS Account: Why IAM Risk Is the #1 Cloud Security Problem"
 description: "IAM misconfiguration is the root cause of most AWS breaches. Learn how AWS access management debt accumulates and what bad actually looks like inside a real account."
 keywords: "AWS IAM security, IAM misconfiguration, cloud identity risk, AWS access management, least privilege AWS"
+slug: "blog-01-iam-silent-threat"
+author: "Gulo AI"
+tags: ["aws", "iam", "security", "cloud", "cybersecurity"]
+published: true
 type: "article"
 publishDate: "2026-06-19T00:00:00Z"
 ---
