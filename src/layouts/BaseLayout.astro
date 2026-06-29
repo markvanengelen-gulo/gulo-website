@@ -9,6 +9,8 @@ interface Props {
   publishDate?: string;
   image?: string;
   type?: 'website' | 'article';
+  ogDescription?: string;
+  twitterTitle?: string;
 }
 
 const { 
@@ -18,7 +20,9 @@ const {
   author = "Gulo AI",
   publishDate,
   image = `${Astro.site}${import.meta.env.BASE_URL}og-image.png`,
-  type = 'website'
+  type = 'website',
+  ogDescription,
+  twitterTitle
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -44,14 +48,14 @@ const currentYear = new Date().getFullYear();
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={ogDescription ?? description} />
     <meta property="og:image" content={image} />
     <meta property="og:site_name" content="Gulo AI" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
+    <meta property="twitter:title" content={twitterTitle ?? title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
     

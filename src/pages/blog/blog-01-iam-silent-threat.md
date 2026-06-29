@@ -1,10 +1,13 @@
 ---
 layout: ../../layouts/BaseLayout.astro
 title: "The Silent Threat Inside Your AWS Account: Why IAM Risk Is the #1 Cloud Security Problem"
-description: "IAM misconfiguration is the root cause of most AWS breaches. Learn how AWS access management debt accumulates and what bad actually looks like inside a real account."
-keywords: "AWS IAM security, IAM misconfiguration, cloud identity risk, AWS access management, least privilege AWS"
+description: "IAM misconfiguration is the root cause of most AWS breaches — and it almost certainly exists in your account right now. Learn why AWS IAM security is the highest-risk surface area in your cloud environment and how permissions debt accumulates silently over time."
+keywords: "AWS IAM security, IAM misconfiguration, cloud identity risk, AWS access management, least privilege AWS, AWS IAM audit, cloud security Canada"
+ogDescription: "IAM misconfiguration is behind most AWS breaches. Learn how permissions debt accumulate and what it costs when it goes undetected. Part 1 of the Horizon IAM Risk Series."
+twitterTitle: "Why IAM Risk Is the #1 Cloud Security Problem"
 slug: "blog-01-iam-silent-threat"
 author: "Gulo AI"
+date: "2026-06-19"
 tags: ["aws", "iam", "security", "cloud", "cybersecurity"]
 published: true
 type: "article"
@@ -167,7 +170,8 @@ That's precisely what Horizon IAM Risk Analyzer is built to answer. It scans you
 <div class="cta-block">
   <h3>See What's Actually in Your AWS IAM</h3>
   <p>Horizon IAM Risk Analyzer maps your current IAM posture, identifies misconfigurations, and prioritizes the findings that matter most — in minutes, not weeks.</p>
-  <a href="#">AWS Marketplace listing →</a>
+  <!-- TODO: replace with live Marketplace listing URL -->
+  <a href="https://aws.amazon.com/marketplace">AWS Marketplace listing →</a>
 </div>
 
 The next post in this series goes deeper: **the five IAM misconfigurations we find in almost every AWS account, why they're so common, and exactly how to fix them.** If you're running workloads in AWS today, at least one of them is in your environment.
