@@ -3,11 +3,10 @@ layout: ../../layouts/BaseLayout.astro
 title: "AWS IAM Privilege Escalation: How Attackers Move Through Your Cloud Account"
 description: "Privilege escalation is how a low-privilege AWS identity becomes an administrator. Learn the most common IAM escalation paths, real policy examples that enable them, and how to detect and block them before attackers find them first."
 keywords: "AWS privilege escalation, IAM privilege escalation, AWS IAM attack paths, cloud identity attack, AWS lateral movement, IAM security, least privilege AWS"
-ogDescription: "The most common IAM privilege escalation paths in AWS — with real policy examples, attacker methodology, and detection strategies. Part 3 of the Horizon IAM Risk Series."
-twitterTitle: "AWS IAM Privilege Escalation Attack Paths"
 slug: "blog-03-privilege-escalation"
 author: "Gulo AI"
-tags: ["aws", "iam", "security", "cloud", "cybersecurity", "privilege-escalation"]
+date: "2026-08-15"
+tags: ["aws", "iam", "security", "cloud", "cybersecurity"]
 published: true
 type: "article"
 publishDate: "2026-08-15T00:00:00Z"
@@ -61,7 +60,7 @@ That distinction matters. Privilege escalation is different from credential thef
 - **Credential theft**: an attacker steals keys, tokens, or a session and uses someone else’s existing permissions.
 - **Privilege escalation**: an attacker starts with a valid but limited identity and uses that identity’s allowed actions to create a new, more powerful permission state.
 
-From a defender’s perspective, escalation is harder to spot because API calls often look legitimate in isolation. `iam:CreatePolicyVersion`, `iam:AttachRolePolicy`, or `lambda:CreateFunction` can all be valid operations in normal engineering workflows. The risk is in **who** calls them, **when**, and **in what sequence**.
+From a defender’s perspective, escalation is harder to spot because API calls often look legitimate in isolation. `iam:CreatePolicyVersion`, `iam:AttachUserPolicy`, or `lambda:CreateFunction` can all be valid operations in normal engineering workflows. The risk is in **who** calls them, **when**, and **in what sequence**.
 
 ---
 
@@ -125,7 +124,7 @@ And the injected policy document (`admin-policy.json`) is typically:
 
 ---
 
-## Escalation Path #2: `iam:AttachUserPolicy` / `iam:AttachRolePolicy`
+## Escalation Path #2: `iam:AttachUserPolicy`
 
 <span class="path-label">High-Risk Path</span>
 
@@ -140,12 +139,10 @@ Example permission set:
     {
       "Effect": "Allow",
       "Action": [
-        "iam:AttachUserPolicy",
-        "iam:AttachRolePolicy"
+        "iam:AttachUserPolicy"
       ],
       "Resource": [
-        "arn:aws:iam::*:user/*",
-        "arn:aws:iam::*:role/*"
+        "arn:aws:iam::*:user/*"
       ]
     }
   ]
@@ -164,25 +161,11 @@ aws iam attach-user-policy \
 aws ec2 describe-instances
 ```
 
-Or against a role they can assume:
-
-```bash
-# Attach admin policy to a role the attacker can assume
-aws iam attach-role-policy \
-  --role-name app-deploy-role \
-  --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
-
-# Assume role and escalate session permissions
-aws sts assume-role \
-  --role-arn arn:aws:iam::123456789012:role/app-deploy-role \
-  --role-session-name escalated-session
-```
-
 ### Remediation
 
-- Deny `iam:AttachUserPolicy` and `iam:AttachRolePolicy` for non-IAM-admin roles.
+- Deny `iam:AttachUserPolicy` for non-IAM-admin roles.
 - Use explicit deny guardrails at org/account level for attaching `AdministratorAccess`.
-- Require permission boundaries on delegatable roles so attached policies cannot exceed approved limits.
+- Restrict attachment targets to approved break-glass identities only.
 
 ---
 
@@ -198,25 +181,47 @@ The attacker needs three capabilities:
 2. `lambda:CreateFunction` to launch code under that role.
 3. `lambda:InvokeFunction` to execute the payload.
 
-Minimal policy example enabling this chain:
+Each step can be granted separately, which is what makes this chain easy to miss in reviews.
+
+Permission 1 (`iam:PassRole`):
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "PassPrivilegedRole",
       "Effect": "Allow",
       "Action": "iam:PassRole",
-      "Resource": "arn:aws:iam::123456789012:role/*"
-    },
+      "Resource": "arn:aws:iam::123456789012:role/OrganizationAccountAccessRole"
+    }
+  ]
+}
+```
+
+Permission 2 (`lambda:CreateFunction`):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Sid": "CreateAndInvokeLambda",
       "Effect": "Allow",
-      "Action": [
-        "lambda:CreateFunction",
-        "lambda:InvokeFunction"
-      ],
+      "Action": "lambda:CreateFunction",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+Permission 3 (`lambda:InvokeFunction`):
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
       "Resource": "*"
     }
   ]
@@ -257,7 +262,7 @@ In real incidents, attackers rarely rely on a single escalation trick. They chai
 A common attacker workflow:
 
 1. **Enumerate current privileges** using IAM simulation APIs, failed API response patterns, and service discovery calls.
-2. **Probe IAM write capabilities** (`CreatePolicyVersion`, `AttachRolePolicy`, `PutUserPolicy`, etc.).
+2. **Probe IAM write capabilities** (`CreatePolicyVersion`, `AttachUserPolicy`, `PutUserPolicy`, etc.).
 3. **Check for `iam:PassRole`** and inventory roles with broad permissions.
 4. **Look for an execution primitive** (Lambda, ECS task execution, Step Functions integration) to run code under a stronger role.
 5. **Establish durable access** by creating new policies, roles, access keys, or trust relationships.
@@ -275,7 +280,6 @@ At minimum, build detections for these event patterns:
 
 - `CreatePolicyVersion`
 - `AttachUserPolicy`
-- `AttachRolePolicy`
 - `CreateFunction` where `role` ARN is unusual for the calling principal
 - `InvokeFunction` occurring shortly after `CreateFunction` by the same principal
 - Any IAM write action from principals that do not normally perform IAM administration
@@ -321,7 +325,7 @@ Horizon IAM Risk Analyzer gives you a practical way to detect and prioritize the
 <div class="cta-block">
   <h3>Find Your IAM Escalation Paths Before Attackers Do</h3>
   <p>Automatically map privilege-escalation combinations across users, roles, and policies — and remediate the highest-risk paths first.</p>
-  <a href="#">[Start your free 14-day trial on AWS Marketplace →]</a>
+  <a href="https://aws.amazon.com/marketplace">[Start your free 14-day trial on AWS Marketplace →]</a>
 </div>
 
 **Up next — Part 4: Multi-Account IAM Risk.** We’ll cover how escalation paths spread across AWS Organizations, cross-account trusts, and delegated administration models.
