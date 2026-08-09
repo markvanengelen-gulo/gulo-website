@@ -5,7 +5,7 @@ description: "Privilege escalation is how a low-privilege AWS identity becomes a
 keywords: "AWS privilege escalation, IAM privilege escalation, AWS IAM attack paths, cloud identity attack, AWS lateral movement, IAM security, least privilege AWS"
 slug: "blog-03-privilege-escalation"
 author: "Gulo AI"
-date: "2026-08-15"
+date: "2026-08-09"
 tags: ["aws", "iam", "security", "cloud", "cybersecurity"]
 published: true
 type: "article"
