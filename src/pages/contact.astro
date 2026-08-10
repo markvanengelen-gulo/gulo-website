@@ -35,6 +35,8 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
             <!-- Honeypot anti-spam: must stay empty. Hidden from real users, visible to bots. -->
             <div style="position: absolute; left: -9999px; top: -9999px; height: 0; width: 0; overflow: hidden;" aria-hidden="true" role="presentation">
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+              <!-- Web3Forms built-in honeypot -->
+              <input type="checkbox" name="_honey" style="display:none" tabindex="-1" />
             </div>
             
             <div>
@@ -92,6 +94,19 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
             </div>
             
             <div id="form-message" style="display: none; padding: 0.75rem; border-radius: 0.5rem; font-weight: 500;"></div>
+
+            <!-- Math challenge (Layer 3 bot protection) -->
+            <div>
+              <label id="math-challenge-label" for="math-answer" style="display: block; margin-bottom: 0.5rem; font-weight: 500;"></label>
+              <input
+                type="number"
+                id="math-answer"
+                name="math-answer"
+                autocomplete="off"
+                style="width: 100%; padding: 0.75rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; font-size: 1rem;"
+              />
+              <div id="math-error" style="display: none; margin-top: 0.5rem; color: #991b1b; font-size: 0.9rem;"></div>
+            </div>
             
             <button type="submit" id="submit-btn" class="btn btn-primary btn-large">
               <span id="button-text">Send Message</span>
@@ -278,6 +293,24 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
     const buttonLoading = document.getElementById('button-loading') as HTMLSpanElement;
     const formMessage = document.getElementById('form-message') as HTMLDivElement;
 
+    // Layer 2: record form load time for timing check
+    const formLoadTime = Date.now();
+
+    // Layer 3: math challenge state
+    let mathNum1 = 0;
+    let mathNum2 = 0;
+
+    function generateMathChallenge() {
+      mathNum1 = Math.floor(Math.random() * 10);
+      mathNum2 = Math.floor(Math.random() * 10);
+      const label = document.getElementById('math-challenge-label');
+      const answerInput = document.getElementById('math-answer') as HTMLInputElement;
+      if (label) label.textContent = `Please confirm you're human: what is ${mathNum1} + ${mathNum2}?`;
+      if (answerInput) answerInput.value = '';
+    }
+
+    generateMathChallenge();
+
     function setContactMessage(text: string, variant: 'success' | 'error' | 'info') {
       formMessage.textContent = text;
       formMessage.style.display = 'block';
@@ -299,13 +332,35 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
 
         const formData = new FormData(contactForm);
 
-        // Honeypot check: if filled, silently succeed to avoid helping spammers
+        // Layer 1a: honeypot check (custom field)
         const honeypot = String(formData.get('website') ?? '').trim();
         if (honeypot) {
           setContactMessage('Message Sent Successfully.', 'success');
           contactForm.reset();
+          generateMathChallenge();
           return;
         }
+
+        // Layer 2: timing check — reject submissions under 3 seconds
+        const timeElapsed = Date.now() - formLoadTime;
+        if (timeElapsed < 3000) {
+          setContactMessage('Message Sent Successfully.', 'success');
+          contactForm.reset();
+          generateMathChallenge();
+          return;
+        }
+
+        // Layer 3: math challenge validation
+        const mathError = document.getElementById('math-error') as HTMLDivElement;
+        const answerInput = document.getElementById('math-answer') as HTMLInputElement;
+        const userAnswer = parseInt(answerInput.value, 10);
+        if (isNaN(userAnswer) || userAnswer !== mathNum1 + mathNum2) {
+          mathError.textContent = 'Incorrect answer — please try again.';
+          mathError.style.display = 'block';
+          generateMathChallenge();
+          return;
+        }
+        mathError.style.display = 'none';
 
         // Guard: missing or unconfigured access key
         const accessKey = String(formData.get('access_key') ?? '').trim();
@@ -335,6 +390,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
           // Exact success text required by spec
           setContactMessage('Message Sent Successfully.', 'success');
           contactForm.reset();
+          generateMathChallenge();
         } catch (err) {
           const errMsg = err instanceof Error ? err.message : String(err);
           console.error('[Contact Form] Submission failed:', errMsg);
