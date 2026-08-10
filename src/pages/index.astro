@@ -4,17 +4,19 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
-  title="Gulo AI - Advanced AI Solutions for Business"
-  description="Transform your business with cutting-edge AI technology. Gulo AI provides intelligent solutions for automation, data analytics, and machine learning."
+  title="Gulo AI — AI Services, Cloud Advisory &amp; AWS Security"
+  description="AI services, cloud advisory, and AWS security from a Canadian-based team. Horizon IAM Risk Analyzer detects IAM misconfigurations automatically — available globally on AWS Marketplace."
+  ogTitle="Gulo AI — AI Services, Cloud Advisory &amp; AWS Security"
+  ogDescription="AI services, cloud advisory, and AWS security from a Canadian-based team. Horizon IAM Risk Analyzer is available globally on AWS Marketplace."
 >
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Canadian Technology and Services - That Delivers Real Outcomes</h1>
-      <p>Practical technology, data, AI, and cybersecurity services designed for Canadian organizations — from strategy to production, grounded in security, compliance, and measurable results.</p>
+      <h1>AI Services, Cloud Advisory &amp; AWS Security — Canadian-Based, Globally Delivered</h1>
+      <p>Practical AI and cloud services from a Canadian-based team, with Horizon IAM Risk Analyzer available globally on AWS Marketplace. Canadian data sovereignty options available.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href={`${base}services`} class="btn btn-primary btn-large">Explore Our Services</a>
-        <a href={`${base}about`} class="btn btn-secondary btn-large">About Gulo AI</a>
+        <a href={`${base}products/horizon-iam`} class="btn btn-secondary btn-large">View Horizon IAM</a>
       </div>
     </div>
   </section>
@@ -27,8 +29,8 @@ const base = import.meta.env.BASE_URL;
       
       <div class="grid grid-3">
         <div class="card">
-          <h3>Canadian by Design</h3>
-          <p>Built and operated in Canada, with a strong focus on data sovereignty, privacy, and trust.</p>
+          <h3>AI &amp; Cloud Expertise</h3>
+          <p>Deep capability across AI, data, and cloud — delivering practical, production-ready solutions that integrate into your existing environment.</p>
         </div>
         
         <div class="card">
@@ -37,8 +39,8 @@ const base = import.meta.env.BASE_URL;
         </div>
         
         <div class="card">
-          <h3>Practical Execution</h3>
-          <p>Our solutions integrate into existing environments and workflows with minimal friction.</p>
+          <h3>Globally Capable, Canadian-Based</h3>
+          <p>A Canadian-based team delivering AI and cloud security services worldwide, with Canadian data sovereignty options for regulated industries — PIPEDA, PIPA, and Bill C-26 compliant.</p>
         </div>
       </div>
       
@@ -55,12 +57,24 @@ const base = import.meta.env.BASE_URL;
       <p class="section-subtitle">Practical technology, data, AI, and cybersecurity services that deliver measurable outcomes</p>
       
       <div class="grid grid-2">
+        <div class="card featured-product" style="grid-column: 1 / -1; border: 2px solid var(--primary-color, #1e40af); background: #f0f4ff;">
+          <h3>Horizon IAM Risk Analyzer</h3>
+          <p>Our AI-powered AWS security tool detects IAM misconfigurations, maps privilege escalation paths, and delivers plain-language remediation guidance. Available globally on AWS Marketplace — free 14-day trial included.</p>
+          <a href="https://aws.amazon.com/marketplace" class="btn btn-primary">View on AWS Marketplace →</a>
+        </div>
+
         <div class="card">
-          <h3>Data & AI Project Services</h3>
+          <h3>Data &amp; AI Project Services</h3>
           <p>From strategy to production — AI that actually delivers results. We help bridge the gap by designing, building, and operationalizing data and AI solutions that are secure, scalable, and aligned to real business needs.</p>
           <a href={`${base}services#data-ai`} class="btn btn-primary">Learn more →</a>
         </div>
         
+        <div class="card">
+          <h3>Architecture Services</h3>
+          <p>Clear direction. Practical roadmaps. Architecture that actually gets built. We help translate business goals into actionable technology roadmaps, grounded in current-state realities and future-state ambition.</p>
+          <a href={`${base}services#architecture`} class="btn btn-primary">Learn more →</a>
+        </div>
+
         <div class="card">
           <h3>Cybersecurity Services</h3>
           <p>Security that enables progress — not just compliance. We help organizations build secure, resilient environments that support their strategic objectives with a risk-based, outcome-focused approach.</p>
@@ -71,12 +85,6 @@ const base = import.meta.env.BASE_URL;
           <h3>Managed IT Services</h3>
           <p>Reliable, proactive IT management — so you can focus on what matters. We provide secure, proactive support for your infrastructure, applications, and operations, handling the complexity so your team can focus on delivering value.</p>
           <a href={`${base}services#managed-it`} class="btn btn-primary">Learn more →</a>
-        </div>
-        
-        <div class="card">
-          <h3>Architecture Services</h3>
-          <p>Clear direction. Practical roadmaps. Architecture that actually gets built. We help translate business goals into actionable technology roadmaps, grounded in current-state realities and future-state ambition.</p>
-          <a href={`${base}services#architecture`} class="btn btn-primary">Learn more →</a>
         </div>
       </div>
     </div>
@@ -131,6 +139,10 @@ const base = import.meta.env.BASE_URL;
           <h2 class="text-primary">10+</h2>
           <p>Enterprise Clients</p>
         </div>
+        <div class="text-center">
+          <h2 class="text-primary">Global</h2>
+          <p>AWS Marketplace Distribution</p>
+        </div>
       </div>
     </div>
   </section>
@@ -140,7 +152,7 @@ const base = import.meta.env.BASE_URL;
     <div class="container text-center">
       <h2 style="color: white;">Ready to Move Forward?</h2>
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
-        Whether you're exploring AI readiness, strengthening security, or modernizing infrastructure — let's discuss how we can help your organization achieve measurable outcomes.
+        Whether you're building AI solutions, modernizing cloud architecture, or strengthening AWS security — Gulo AI brings global capability with Canadian accountability.
       </p>
       <a href={`${base}contact`} class="btn btn-primary btn-large btn-white" style="color: white;">
         Get in Touch
