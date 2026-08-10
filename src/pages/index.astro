@@ -1,6 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
+
+type IconDefinition = {
+  bg: string;
+  color: string;
+  svg: string;
+};
+
+const latestInsightIcons: Record<string, IconDefinition> = {
+  "blog-03-privilege-escalation": {
+    bg: "#ede9fe", color: "#7c3aed",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>`
+  },
+  "blog-02-dangerous-misconfigurations": {
+    bg: "#fef3c7", color: "#b45309",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20l1-6-5-2 9-9 1 6 5 2-9 9z"/></svg>`
+  },
+  "blog-01-iam-silent-threat": {
+    bg: "#fee2e2", color: "#b91c1c",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7l8-4z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/></svg>`
+  }
+};
+
+const latestInsightFallbackIcon: IconDefinition = {
+  bg: "#f1f5f9",
+  color: "#475569",
+  svg: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>`
+};
+
+const latestInsightImage = "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)";
+const blogModules = await Astro.glob('./blog/*.{md,astro}');
+const latestInsights = blogModules
+  .map((module) => {
+    const frontmatter = (module.frontmatter ?? {}) as Record<string, string | undefined>;
+    const slug = frontmatter.slug;
+    const title = frontmatter.title;
+    const excerpt = frontmatter.description;
+    const publishDate = frontmatter.publishDate;
+    const published = frontmatter.published;
+
+    if (!slug || !title || !excerpt || !publishDate || published === 'false') {
+      return null;
+    }
+
+    return {
+      slug,
+      title,
+      excerpt,
+      publishDate
+    };
+  })
+  .filter((post): post is { slug: string; title: string; excerpt: string; publishDate: string } => post !== null)
+  .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
+  .slice(0, 2);
 ---
 
 <BaseLayout 
@@ -16,7 +69,6 @@ const base = import.meta.env.BASE_URL;
       <p>Practical AI and cloud services from a Canadian-based team, with Horizon IAM Risk Analyzer available globally on AWS Marketplace. Canadian data sovereignty options available.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href={`${base}services`} class="btn btn-primary btn-large">Explore Our Services</a>
-        <a href={`${base}products/horizon-iam`} class="btn btn-secondary btn-large">View Horizon IAM</a>
       </div>
     </div>
   </section>
@@ -97,23 +149,25 @@ const base = import.meta.env.BASE_URL;
       <p class="section-subtitle">Stay updated with trends, best practices, and AI insights</p>
       
       <div class="grid grid-2">
-        <a href={`${base}blog/ai-transformation-guide`} class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-          <div class="blog-card-content">
-            <h3 class="blog-card-title">The Complete Guide to AI Transformation</h3>
-            <p class="blog-card-excerpt">Learn how to successfully implement AI in your organization with our comprehensive step-by-step guide.</p>
-            <div class="blog-card-meta">January 15, 2026 • 8 min read</div>
-          </div>
-        </a>
+        {latestInsights.map((post) => {
+          const icon = latestInsightIcons[post.slug] ?? latestInsightFallbackIcon;
 
-        <a href={`${base}blog/machine-learning-best-practices`} class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-          <div class="blog-card-content">
-            <h3 class="blog-card-title">Machine Learning Best Practices for 2026</h3>
-            <p class="blog-card-excerpt">Discover the latest techniques and methodologies for building robust machine learning systems.</p>
-            <div class="blog-card-meta">January 10, 2026 • 6 min read</div>
-          </div>
-        </a>
+          return (
+            <a href={`${base}blog/${post.slug}`} class="blog-card">
+              <div class="blog-card-image" style={`background: ${latestInsightImage};`}></div>
+              <div class="blog-card-content">
+                <div
+                  style={`width:64px; height:64px; border-radius:14px; background:${icon.bg}; color:${icon.color}; display:flex; align-items:center; justify-content:center; margin-bottom:12px; flex-shrink:0;`}
+                >
+                  <Fragment set:html={icon.svg} />
+                </div>
+                <h3 class="blog-card-title">{post.title}</h3>
+                <p class="blog-card-excerpt">{post.excerpt}</p>
+                <div class="blog-card-meta">{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+              </div>
+            </a>
+          );
+        })}
       </div>
       
       <div style="text-align: center; margin-top: 2rem;">
