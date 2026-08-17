@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" fill="none" aria-label="Gulo AI">
+  <!-- Icon: stylised G-shaped mark with circuit/node accent -->
+  <rect x="2" y="2" width="40" height="40" rx="10" fill="#1e3a8a"/>
+  <!-- G shape in white -->
+  <path d="M22 10C15.373 10 10 15.373 10 22C10 28.627 15.373 34 22 34C28.627 34 34 28.627 34 22V21H23V25H29.5C28.4 28.1 25.4 30 22 30C17.582 30 14 26.418 14 22C14 17.582 17.582 14 22 14C24.2 14 26.2 14.9 27.7 16.3L30.5 13.5C28.3 11.4 25.3 10 22 10Z" fill="white"/>
+  <!-- Wordmark: Gulo AI -->
+  <text x="52" y="28" font-family="Poppins, Inter, -apple-system, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.5" fill="#1e3a8a">Gulo</text>
+  <text x="103" y="28" font-family="Poppins, Inter, -apple-system, sans-serif" font-weight="400" font-size="20" letter-spacing="-0.3" fill="#3b82f6"> AI</text>
+</svg>
