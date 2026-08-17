@@ -179,7 +179,9 @@ const currentYear = new Date().getFullYear();
   <body>
     <header>
       <nav class="container">
-        <a href={base} class="logo">Gulo AI</a>
+        <a href={base} class="logo" aria-label="Gulo AI — Home">
+          <img src={`${base}logo.svg`} alt="Gulo AI" class="logo-img" width="144" height="35" />
+        </a>
         <ul class="nav-links">
           <li><a href={base}>Home</a></li>
           <li><a href={`${base}about`}>About</a></li>
@@ -206,7 +208,9 @@ const currentYear = new Date().getFullYear();
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h4>Gulo AI</h4>
+            <a href={base} class="footer-logo" aria-label="Gulo AI — Home">
+              <img src={`${base}logo-white.svg`} alt="Gulo AI" class="footer-logo-img" width="130" height="32" />
+            </a>
             <p>AI Services, Cloud Advisory &amp; AWS Security — Canadian-Based, Globally Delivered</p>
           </div>
           <div class="footer-section">

@@ -264,11 +264,33 @@ nav {
   font-family: var(--font-heading);
   letter-spacing: -0.02em;
   transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
 }
 
 .logo:hover {
   color: var(--color-primary-light);
   transform: translateY(-1px);
+}
+
+.logo-img {
+  display: block;
+  height: 35px;
+  width: auto;
+  max-width: 144px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo-img {
+  display: block;
+  height: 32px;
+  width: auto;
+  max-width: 130px;
 }
 
 .nav-links {
