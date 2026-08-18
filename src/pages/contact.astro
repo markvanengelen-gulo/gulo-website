@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import iconSrc from '../gulo_icon_blue_transparent.png';
 // Inject Web3Forms access key at build time via PUBLIC_WEB3FORMS_ACCESS_KEY env var.
 // Set this as a GitHub Actions secret (WEB3FORMS_ACCESS_KEY) and pass it during the build step.
 const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3ac-4ce5-b86f-bc1badbd53df';
@@ -12,6 +13,7 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
+      <img src={iconSrc.src} alt="Gulo AI icon" class="hero-brand-icon" width="80" height="80" />
       <h1>Let's Connect</h1>
       <p>Get in touch to explore how practical Technology and AI solutions and Services can optimize your business and drive real results.</p>
     </div>

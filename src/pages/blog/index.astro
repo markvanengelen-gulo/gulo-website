@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
+import iconSrc from '../../gulo_icon_blue_transparent.png';
 const base = import.meta.env.BASE_URL;
 
 type IconDefinition = {
@@ -174,6 +174,7 @@ const getIcon = (slug: string) => icons[slug] ?? fallbackIcon;
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
+      <img src={iconSrc.src} alt="Gulo AI icon" class="hero-brand-icon" width="80" height="80" />
       <h1>Gulo AI Blog</h1>
       <p>Insights, trends, and best practices in artificial intelligence</p>
     </div>
