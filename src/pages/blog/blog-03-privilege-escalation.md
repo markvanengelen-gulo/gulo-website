@@ -13,7 +13,7 @@ publishDate: "2026-08-15T00:00:00Z"
 ---
 
 <style>
-  .post-hero { padding: 3rem 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; }
+  .post-hero { padding: 2.25rem 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; }
   .post-hero .container { max-width: 800px; margin: 0 auto; }
   .post-meta { color: rgba(255,255,255,0.7); margin-bottom: 1rem; font-size: 0.9rem; }
   .post-series { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; padding: 0.25rem 0.75rem; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1rem; }
