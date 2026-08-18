@@ -16,7 +16,7 @@ published: true
 "article:published_time": "2026-01-01T00:00:00Z"
 ---
 
-<section class="hero" style="padding: 3rem 0;">
+<section class="hero" style="padding: 2.25rem 0;">
   <div class="container">
     <div style="max-width: 800px; margin: 0 auto;">
       <div style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">January 1, 2026 • 5 min read</div>
