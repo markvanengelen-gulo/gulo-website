@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import iconSrc from '../gulo_icon_blue_transparent.png';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -10,6 +11,7 @@ const base = import.meta.env.BASE_URL;
   <!-- Hero Section - Vision -->
   <section class="hero">
     <div class="container">
+      <img src={iconSrc.src} alt="Gulo AI icon" class="hero-brand-icon" width="80" height="80" />
       <h1>About Gulo AI</h1>
       <p class="hero-subtitle">Canadian-built AI that delivers real outcomes.</p>
     </div>

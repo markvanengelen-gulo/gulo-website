@@ -275,9 +275,9 @@ nav {
 
 .logo-img {
   display: block;
-  height: 35px;
+  height: 50px;
   width: auto;
-  max-width: 144px;
+  max-width: 200px;
 }
 
 .footer-logo {
@@ -288,9 +288,9 @@ nav {
 
 .footer-logo-img {
   display: block;
-  height: 32px;
+  height: 44px;
   width: auto;
-  max-width: 130px;
+  max-width: 180px;
 }
 
 .nav-links {
@@ -414,6 +414,21 @@ nav {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.hero-brand-icon {
+  display: block;
+  margin: 0 auto var(--spacing-md);
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .hero-brand-icon {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .hero::before {
