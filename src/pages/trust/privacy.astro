@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 
 const tocItems = [
   { id: 'section-1', label: '1. Who We Are' },
@@ -192,7 +193,7 @@ const tocItems = [
               <div class="trust-contact-block">
                 <p>Gulo AI Canada — Privacy Officer</p>
                 <p><a href="mailto:privacy@gulo.ai">privacy@gulo.ai</a></p>
-                <p><a href="https://gulo.ai/privacy">gulo.ai/privacy</a></p>
+                <p><a href={`${base}trust/privacy`}>gulo.ai/privacy</a></p>
                 <p>British Columbia, Canada</p>
               </div>
               <p>You also have the right to file a complaint with:</p>
