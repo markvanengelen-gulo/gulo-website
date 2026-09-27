@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Trust Centre | Gulo AI"
+  description="Explore Gulo AI's Trust Centre for privacy, terms of use, and upcoming security and compliance information."
+>
+  <div class="trust-centre">
+    <section class="trust-hero">
+      <div class="container">
+        <h1>Trust &amp; Security at Gulo AI</h1>
+        <p>
+          Gulo AI is built with Canadian data sovereignty and practical security controls in mind, with customer deployments aligned to regional residency requirements and secure operating practices. Our Trust Centre brings together the legal, privacy, and security information customers need to evaluate how we protect data in British Columbia and across Canada.
+        </p>
+      </div>
+    </section>
+
+    <section class="trust-section-light">
+      <div class="container">
+        <h2 class="section-title">Trust Centre</h2>
+        <p class="section-subtitle">
+          Review our legal documentation today, and check back soon for additional security and compliance resources.
+        </p>
+
+        <div class="grid grid-3 trust-card-grid">
+          <article class="card trust-card">
+            <h3>Legal</h3>
+            <p>Our privacy commitments, licensing terms, and customer-facing legal documentation.</p>
+            <div class="trust-card-actions">
+              <a class="btn btn-primary trust-btn" href={`${base}trust/privacy`}>Privacy Policy</a>
+              <a class="btn btn-secondary trust-btn-secondary" href={`${base}trust/terms`}>Terms of Use (EULA)</a>
+            </div>
+          </article>
+
+          <article class="card trust-card">
+            <h3>Security</h3>
+            <p>Our security practices, technical safeguards, and service controls.</p>
+            <div class="trust-card-actions">
+              <span class="trust-coming-soon" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+
+          <article class="card trust-card">
+            <h3>Compliance</h3>
+            <p>Our compliance posture, attestations, and certifications.</p>
+            <div class="trust-card-actions">
+              <span class="trust-coming-soon" aria-disabled="true">Coming soon</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="trust-footer-note">Gulo AI Canada | gulo.ai | British Columbia, Canada</p>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

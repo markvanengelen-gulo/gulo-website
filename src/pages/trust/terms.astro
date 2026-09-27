@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tocItems = [
+  { id: 'section-1', label: '1. Parties' },
+  { id: 'section-2', label: '2. Definitions' },
+  { id: 'section-3', label: '3. License Grant' },
+  { id: 'section-4', label: '4. AWS Marketplace' },
+  { id: 'section-5', label: '5. Customer Obligations' },
+  { id: 'section-6', label: '6. Customer Data' },
+  { id: 'section-7', label: '7. Fees and Payment' },
+  { id: 'section-8', label: '8. Intellectual Property' },
+  { id: 'section-9', label: '9. Confidentiality' },
+  { id: 'section-10', label: '10. Warranties and Disclaimers' },
+  { id: 'section-11', label: '11. Limitation of Liability' },
+  { id: 'section-12', label: '12. Indemnification' },
+  { id: 'section-13', label: '13. Term and Termination' },
+  { id: 'section-14', label: '14. Governing Law and Dispute Resolution' },
+  { id: 'section-15', label: '15. Export Compliance' },
+  { id: 'section-16', label: '16. General Provisions' },
+  { id: 'section-17', label: '17. Contact Information' }
+];
+---
+
+<BaseLayout
+  title="Terms of Use (End User License Agreement) | Gulo AI Trust Centre"
+  description="Read the Horizon IAM Risk Analyzer Terms of Use (End User License Agreement) from Gulo AI Canada."
+>
+  <div class="trust-legal-page">
+    <section class="trust-legal-shell">
+      <div class="container">
+        <header class="trust-legal-header">
+          <span class="trust-legal-eyebrow">Trust Centre</span>
+          <h1>Terms of Use (End User License Agreement)</h1>
+          <p class="trust-legal-subtitle">Horizon IAM Risk Analyzer — Gulo AI Canada | gulo.ai</p>
+          <p class="trust-legal-date">Effective Date: September 1, 2026</p>
+        </header>
+
+        <div class="trust-legal-layout">
+          <aside class="trust-legal-toc" aria-label="Terms of Use table of contents">
+            <h2>On this page</h2>
+            <ul>
+              {tocItems.map((item) => (
+                <li><a href={`#${item.id}`}>{item.label}</a></li>
+              ))}
+            </ul>
+          </aside>
+
+          <article class="trust-legal-content">
+            <p class="trust-legal-notice">PLEASE READ THIS END USER LICENSE AGREEMENT (&quot;AGREEMENT&quot;) CAREFULLY BEFORE ACCESSING OR USING THE HORIZON IAM RISK ANALYZER SERVICE. BY CLICKING &quot;I AGREE,&quot; SUBSCRIBING THROUGH AWS MARKETPLACE, OR USING THE SERVICE, YOU (&quot;CUSTOMER&quot;) AGREE TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT USE THE SERVICE. THIS AGREEMENT IS ENTERED INTO BETWEEN COMMERCIAL ENTITIES. CUSTOMER REPRESENTS THAT IT IS NOT A CONSUMER AS DEFINED UNDER APPLICABLE CONSUMER PROTECTION LEGISLATION.</p>
+
+            <section class="trust-legal-section" id="section-1">
+              <h2>1. Parties</h2>
+              <p>This Agreement is between Gulo AI Canada, a business operating in British Columbia, Canada (&quot;Gulo,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), and the entity or individual accessing or using the Service (&quot;Customer,&quot; &quot;you,&quot; or &quot;your&quot;).</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-2">
+              <h2>2. Definitions</h2>
+              <ul>
+                <li>&quot;Service&quot; means the Horizon IAM Risk Analyzer software-as-a-service platform, including the web dashboard, AI Copilot (IR Copilot), risk analysis engine, CloudFormation connector templates, APIs, and all associated documentation made available by Gulo.</li>
+                <li>&quot;AWS Marketplace&quot; means Amazon Web Services&apos; digital catalog through which the Service is distributed and subscribed.</li>
+                <li>&quot;Customer Data&quot; means all data, configurations, IAM metadata, and other information that Customer submits to or that is collected by the Service in connection with Customer&apos;s AWS accounts.</li>
+                <li>&quot;Authorized User&quot; means any individual whom Customer authorizes to access the Service on Customer&apos;s behalf.</li>
+                <li>&quot;Documentation&quot; means the technical and user documentation made available by Gulo at gulo.ai or within the Service.</li>
+                <li>&quot;Subscription&quot; means Customer&apos;s right to access and use the Service as purchased through AWS Marketplace.</li>
+              </ul>
+            </section>
+
+            <section class="trust-legal-section" id="section-3">
+              <h2>3. License Grant</h2>
+
+              <h3>3.1 Subscription License</h3>
+              <p>Subject to Customer&apos;s timely payment of applicable fees and compliance with this Agreement, Gulo grants Customer a limited, non-exclusive, non-transferable, non-sublicensable right to access and use the Service during the Subscription Term solely for Customer&apos;s internal business purposes.</p>
+
+              <h3>3.2 Authorized Users</h3>
+              <p>Customer may permit Authorized Users to access the Service, provided that Customer remains responsible for all acts and omissions of its Authorized Users and ensures they comply with this Agreement.</p>
+
+              <h3>3.3 Restrictions</h3>
+              <p>Customer shall not, and shall not permit any third party to:</p>
+              <ul>
+                <li>copy, modify, adapt, translate, or create derivative works based on the Service or Documentation;</li>
+                <li>reverse engineer, disassemble, decompile, or otherwise attempt to derive source code of the Service;</li>
+                <li>sublicense, sell, resell, transfer, assign, or otherwise commercially exploit or make the Service available to any third party;</li>
+                <li>use the Service to build a competitive product or service, or externally publish benchmarking results derived from the Service without Gulo&apos;s prior written consent;</li>
+                <li>remove or alter any proprietary notices, labels, or marks on the Service;</li>
+                <li>use the Service in violation of applicable law or regulation;</li>
+                <li>attempt to gain unauthorized access to the Service or its related systems.</li>
+              </ul>
+            </section>
+
+            <section class="trust-legal-section" id="section-4">
+              <h2>4. AWS Marketplace</h2>
+              <p>Customer&apos;s purchase and use of the Service through AWS Marketplace is subject to the AWS Marketplace Subscriber Terms of Service in addition to this Agreement. In the event of a conflict between this Agreement and the AWS Marketplace terms, this Agreement shall govern with respect to the Service itself. AWS is not a party to this Agreement and has no obligations or liability with respect to the Service. If Gulo ceases to list the Service on AWS Marketplace, Gulo will provide Customer with reasonable prior written notice and reasonable transition assistance.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-5">
+              <h2>5. Customer Obligations</h2>
+
+              <h3>5.1 Account Responsibility</h3>
+              <p>Customer is responsible for maintaining the confidentiality of account credentials and for all activity occurring under Customer&apos;s account. Customer shall promptly notify Gulo of any unauthorized use.</p>
+
+              <h3>5.2 Acceptable Use</h3>
+              <p>Customer shall use the Service only for lawful purposes and in accordance with this Agreement, the Documentation, and any applicable Gulo usage policies published at gulo.ai.</p>
+
+              <h3>5.3 AWS Account Access</h3>
+              <p>Customer is solely responsible for the CloudFormation connector templates deployed into Customer&apos;s AWS accounts, for maintaining appropriate AWS IAM permissions governing that deployment, and for ensuring the Service has only the access necessary for its intended function.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-6">
+              <h2>6. Customer Data</h2>
+
+              <h3>6.1 Ownership</h3>
+              <p>As between the parties, Customer retains all right, title, and interest in and to Customer Data. Gulo claims no ownership over Customer Data.</p>
+
+              <h3>6.2 License to Customer Data</h3>
+              <p>Customer grants Gulo a limited, non-exclusive licence to process Customer Data solely as necessary to provide, maintain, and improve the Service, as further described in our Privacy Policy.</p>
+
+              <h3>6.3 Data Security</h3>
+              <p>Gulo will implement and maintain commercially reasonable technical and organizational measures to protect Customer Data against unauthorized access, disclosure, alteration, or destruction, consistent with our security practices described in the Documentation.</p>
+
+              <h3>6.4 Data Residency</h3>
+              <p>Customer Data is processed and stored within the AWS region(s) selected by Customer at the time of deployment. Gulo does not transfer Customer Data outside those regions except as required by applicable law.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-7">
+              <h2>7. Fees and Payment</h2>
+              <p>Fees for the Service are set forth in the applicable AWS Marketplace listing and are billed through AWS Marketplace. All fees are non-refundable except as expressly stated in this Agreement or required by applicable law. Gulo reserves the right to modify fees upon notice, with changes taking effect at the next Subscription renewal.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-8">
+              <h2>8. Intellectual Property</h2>
+              <p>The Service, including all software, algorithms, models, user interfaces, and Documentation, is and remains the exclusive property of Gulo and its licensors. Nothing in this Agreement transfers any intellectual property rights to Customer. Customer feedback or suggestions provided to Gulo may be used by Gulo without restriction or compensation.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-9">
+              <h2>9. Confidentiality</h2>
+              <p>Each party may receive confidential information of the other party. Each party agrees to: (a) hold the other&apos;s confidential information in confidence using at least the same degree of care used for its own confidential information, but no less than reasonable care; (b) not disclose confidential information to third parties without prior written consent; and (c) use confidential information solely to exercise its rights and perform its obligations under this Agreement. &quot;Confidential information&quot; does not include information that is publicly known, independently developed, or received from a third party without restriction.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-10">
+              <h2>10. Warranties and Disclaimers</h2>
+
+              <h3>10.1 Gulo Warranties</h3>
+              <p>Gulo warrants that: (a) it has the right to grant the licenses herein; (b) the Service will perform materially in accordance with the Documentation under normal use; and (c) Gulo will not knowingly introduce malicious code into the Service.</p>
+
+              <h3>10.2 Disclaimer</h3>
+              <p>EXCEPT AS EXPRESSLY SET FORTH IN SECTION 10.1, THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE.&quot; GULO EXPRESSLY DISCLAIMS ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE. GULO DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE.</p>
+
+              <h3>10.3 Security Findings</h3>
+              <p>The Service is designed to assist in identifying IAM security risks. It does not guarantee the detection of all security vulnerabilities or risks. Customer is solely responsible for evaluating findings and implementing remediation measures.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-11">
+              <h2>11. Limitation of Liability</h2>
+              <p>Nothing in this Agreement limits or excludes either party&apos;s liability for: (a) death or personal injury caused by negligence; (b) fraud or fraudulent misrepresentation; or (c) any other liability that cannot be excluded or limited by applicable law.</p>
+              <p>SUBJECT TO THE FOREGOING, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
+              <ul>
+                <li>NEITHER PARTY WILL BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, REVENUE, DATA, OR BUSINESS OPPORTUNITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</li>
+                <li>GULO&apos;S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT WILL NOT EXCEED THE FEES PAID BY CUSTOMER TO GULO IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</li>
+              </ul>
+              <p>These limitations apply regardless of the theory of liability (contract, tort, statute, or otherwise) and shall survive even if any limited remedy fails its essential purpose.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-12">
+              <h2>12. Indemnification</h2>
+              <p>Customer shall defend, indemnify, and hold harmless Gulo and its officers, directors, employees, and agents from and against any claims, damages, losses, and expenses (including reasonable legal fees) arising from: (a) Customer&apos;s use of the Service in violation of this Agreement; (b) Customer Data; or (c) Customer&apos;s violation of applicable law.</p>
+              <p>Gulo shall defend and indemnify Customer against third-party claims alleging that the Service, as provided by Gulo and used in accordance with this Agreement, infringes any Canadian or United States patent, copyright, or trademark. This obligation does not apply where the alleged infringement arises from: (a) Customer&apos;s modifications to the Service; (b) Customer&apos;s combination of the Service with third-party products or services not approved by Gulo; (c) Customer&apos;s use of the Service outside the scope of the Documentation; or (d) Customer&apos;s continued use after Gulo has provided a non-infringing alternative. Customer must promptly notify Gulo of the claim and cooperate with Gulo&apos;s defence.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-13">
+              <h2>13. Term and Termination</h2>
+
+              <h3>13.1 Term</h3>
+              <p>This Agreement begins on the date Customer first accesses the Service and continues for the duration of the Subscription Term as specified in the AWS Marketplace listing, renewing automatically unless cancelled.</p>
+
+              <h3>13.2 Termination for Cause</h3>
+              <p>Either party may terminate this Agreement immediately upon written notice if the other party materially breaches this Agreement and fails to cure such breach within thirty (30) days after receiving written notice thereof.</p>
+
+              <h3>13.3 Effect of Termination</h3>
+              <p>Upon termination: (a) all licences granted hereunder terminate; (b) Customer shall cease all use of the Service; (c) Gulo will delete or anonymize Customer Data within sixty (60) days, unless otherwise required by law; and (d) all provisions that by their nature should survive will survive, including Sections 6.1, 8, 9, 10.2, 11, and 12.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-14">
+              <h2>14. Governing Law and Dispute Resolution</h2>
+              <p>This Agreement is governed by the laws of the Province of British Columbia and the federal laws of Canada applicable therein, without regard to conflict of law principles. The parties agree to submit to the exclusive jurisdiction of the courts located in Vancouver, British Columbia, Canada for resolution of any dispute. Before initiating any legal proceeding, the parties agree to attempt to resolve disputes in good faith through senior management escalation for a period of thirty (30) days.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-15">
+              <h2>15. Export Compliance</h2>
+              <p>Customer represents that it is not located in a country subject to Canadian or United States government embargoes and that it will comply with all applicable export control laws in connection with its use of the Service.</p>
+            </section>
+
+            <section class="trust-legal-section" id="section-16">
+              <h2>16. General Provisions</h2>
+              <ul>
+                <li>Entire Agreement. This Agreement, together with the Privacy Policy and any applicable Order Form or AWS Marketplace listing, constitutes the entire agreement between the parties regarding its subject matter and supersedes all prior agreements.</li>
+                <li>Amendments. Gulo may update this Agreement from time to time. Material changes will be communicated via email or notice within the Service at least fourteen (14) days before the effective date of changes. Continued use after the effective date of changes constitutes acceptance.</li>
+                <li>Severability. If any provision is found unenforceable, it will be modified to the minimum extent necessary, and the remaining provisions will continue in full force.</li>
+                <li>Waiver. Failure to enforce any provision is not a waiver of the right to enforce it later.</li>
+                <li>Assignment. Customer may not assign this Agreement without Gulo&apos;s prior written consent. Gulo may assign this Agreement in connection with a merger, acquisition, or sale of all or substantially all of its assets.</li>
+                <li>Force Majeure. Neither party is liable for delays caused by circumstances beyond its reasonable control.</li>
+                <li>Notices. Notices to Gulo must be sent to <a href="mailto:legal@gulo.ai">legal@gulo.ai</a>. Gulo will send notices to the email address associated with Customer&apos;s account.</li>
+              </ul>
+            </section>
+
+            <section class="trust-legal-section" id="section-17">
+              <h2>17. Contact Information</h2>
+              <p>For questions about this Agreement, contact:</p>
+              <div class="trust-contact-block">
+                <p>Gulo AI Canada</p>
+                <p><a href="mailto:legal@gulo.ai">legal@gulo.ai</a></p>
+                <p><a href="https://gulo.ai">gulo.ai</a></p>
+                <p>British Columbia, Canada</p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
