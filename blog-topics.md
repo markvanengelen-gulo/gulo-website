@@ -1,0 +1,114 @@
+# Blog Topics Queue
+
+Format: - [schedule] Topic title
+Schedules: daily, weekly-mon, weekly-tue, weekly-wed, weekly-thu, weekly-fri, every-other-day, biweekly
+
+## Topics
+
+- [weekly-mon] AI Readiness Assessment: Is Your Canadian Business Ready for AI?
+- [weekly-wed] Data Sovereignty 101: Keeping Canadian Data in Canada
+- [weekly-fri] Managed IT vs In-House IT: What Makes Sense for Canadian SMBs
+- [weekly-mon] Technology Roadmapping: Turning Business Goals into Actionable IT Plans
+- [weekly-wed] How to Measure ROI on Your First AI Project
+- [weekly-fri] PIPEDA Compliance Checklist for AI-Powered Applications
+- [weekly-mon] What Is a vCISO and Does Your Organization Need One?
+- [weekly-wed] Zero-Trust Architecture Explained for Canadian Business Leaders
+- [weekly-fri] Building an AI Strategy Without a Large Data Science Team
+- [weekly-mon] Top Cybersecurity Threats Facing Canadian Businesses in 2027
+- [weekly-wed] Cloud Migration Pitfalls and How to Avoid Them
+- [weekly-fri] API-First Design: Why It Matters for Modern Canadian Enterprises
+- [weekly-mon] MLOps Basics: Keeping AI Models Reliable in Production
+- [weekly-wed] How to Build a Data Governance Framework From Scratch
+- [weekly-fri] Proactive IT Monitoring: Catching Problems Before They Cost You
+- [weekly-mon] Microservices vs Monolith: Choosing the Right Architecture for Your Stage
+- [weekly-wed] AI Use Cases in the Canadian Public Sector
+- [weekly-fri] Ransomware Recovery Planning: A Step-by-Step Guide for Canadian Orgs
+- [weekly-mon] IT Vendor Management: How to Get More From Your Technology Partners
+- [weekly-wed] Hybrid Cloud Strategy: Balancing On-Prem and Cloud for Canadian Firms
+- [weekly-fri] Natural Language Processing for Canadian Customer Service Teams
+- [weekly-mon] Penetration Testing Explained: What It Is and When to Do It
+- [weekly-wed] Business Continuity Planning: IT Essentials for Canadian Organizations
+- [weekly-fri] Event-Driven Architecture: When and Why to Use It
+- [weekly-mon] Predictive Analytics: Moving From Hindsight to Foresight in Your Business
+- [weekly-wed] Securing Remote Work: A Practical Guide for Canadian Employers
+- [weekly-fri] Help Desk Metrics That Actually Matter: A Guide for IT Managers
+- [weekly-mon] Solution Architecture Reviews: Why They Save Money in the Long Run
+- [weekly-wed] Computer Vision in Canadian Manufacturing: Real-World Applications
+- [weekly-fri] Third-Party Risk Management: Protecting Your Supply Chain in Canada
+- [weekly-mon] Patch Management Best Practices for Canadian IT Teams
+- [weekly-wed] Infrastructure as Code: Getting Started With Terraform for Canadian Teams
+- [weekly-fri] Large Language Models in the Enterprise: What Canadian Leaders Need to Know
+- [weekly-mon] Identity and Access Management: The Foundation of Zero Trust in Canada
+- [weekly-wed] IT Asset Management: Reducing Costs Through Better Visibility
+- [weekly-fri] Containerization With Docker and Kubernetes: A Canadian Business Primer
+- [weekly-mon] Responsible AI: Building Ethical AI Systems for Canadian Organizations
+- [weekly-wed] Security Operations Centre: Build vs Buy for Canadian Mid-Market
+- [weekly-fri] Disaster Recovery as a Service: What Canadian Businesses Need to Know
+- [weekly-mon] Digital Transformation Roadmaps: Avoiding the Five Most Common Mistakes
+- [weekly-wed] Data Pipelines Explained: Moving Data From Source to Insight
+- [weekly-fri] Phishing Simulation Programs: Building a Security-Aware Culture
+- [weekly-mon] Network Monitoring Tools: What Canadian IT Teams Should Be Using
+- [weekly-wed] Cloud Cost Optimization: How Canadian Companies Are Cutting Waste
+- [weekly-fri] Automating Financial Reporting With AI: A Guide for Canadian CFOs
+- [weekly-mon] Incident Response Plans: What to Do When a Breach Happens
+- [weekly-wed] SLA Management: How to Hold Your IT Vendors Accountable
+- [weekly-fri] Service Mesh Architecture: When Complexity Pays Off
+- [weekly-mon] Anomaly Detection With Machine Learning: Use Cases for Canadian Finance
+- [weekly-wed] Endpoint Detection and Response: Why Antivirus Alone Is Not Enough
+- [weekly-fri] ITSM Platforms Compared: ServiceNow vs Freshservice vs Jira
+- [weekly-mon] Domain-Driven Design: Aligning Technology With Your Business Model
+- [weekly-wed] AI in Healthcare: How Canadian Providers Are Improving Patient Outcomes
+- [weekly-fri] Canadian Privacy Law Updates: What IT Leaders Need to Know in 2027
+- [weekly-mon] Managed Detection and Response: The Evolution of Outsourced Security
+- [weekly-wed] Serverless Computing: When It Makes Sense for Canadian Applications
+- [weekly-fri] Recommendation Engines: How Canadian Retailers Are Driving Revenue With AI
+- [weekly-mon] Vulnerability Management Programs: Building a Risk-Based Approach
+- [weekly-wed] IT Budgeting for 2027: A Framework for Canadian Technology Leaders
+- [weekly-fri] Multi-Cloud Strategy: Avoiding Vendor Lock-In for Canadian Enterprises
+- [weekly-mon] AI-Powered Document Processing: Automating Back-Office Work in Canada
+- [weekly-wed] Cloud Security Posture Management: Protecting Your AWS and Azure Environments
+- [weekly-fri] On-Call Escalation Policies: Structuring IT Operations for Reliability
+- [weekly-mon] Legacy System Modernization: A Phased Approach for Canadian Enterprises
+- [weekly-wed] Synthetic Data: How Canadian Companies Are Solving the Training Data Problem
+- [weekly-fri] Privileged Access Management: Locking Down Your Most Sensitive Credentials
+- [weekly-mon] Remote Infrastructure Management: How Canadian IT Teams Stay Ahead
+- [weekly-wed] Site Reliability Engineering: Borrowing From Big Tech for Canadian Scale
+- [weekly-fri] AI for Cybersecurity: Using Machine Learning to Detect Threats Faster
+- [weekly-mon] Security Awareness Training Programs That Actually Work
+- [weekly-wed] Technology Refresh Cycles: When to Upgrade vs Extend Hardware Life
+- [weekly-fri] GraphQL vs REST: Choosing the Right API Strategy for Your Platform
+- [weekly-mon] Workforce Analytics With AI: What Canadian HR Leaders Need to Know
+- [weekly-wed] DDoS Protection Strategies for Canadian Web Applications
+- [weekly-fri] Backup and Recovery Testing: Why Most Canadian Businesses Are Unprepared
+- [weekly-mon] Platform Engineering: Building Internal Developer Portals for Productivity
+- [weekly-wed] Six Months of AI Automation: Lessons From Canadian Early Adopters
+- [weekly-fri] Building a Cybersecurity Roadmap: A 12-Month Plan for Canadian Organizations
+
+## Bonus Topics (add to queue when ready)
+
+- [weekly-tue] IT Service Desk Outsourcing: What Canadian Businesses Should Expect
+- [weekly-thu] Multi-Factor Authentication: Moving Beyond Passwords in Canada
+- [weekly-tue] DevSecOps: Embedding Security Into Your Software Delivery Pipeline
+- [weekly-thu] Feature Engineering for Machine Learning: A Practical Primer
+- [weekly-tue] Cloud Access Security Brokers: Do You Need a CASB in 2027?
+- [weekly-thu] IT Change Management: How to Roll Out Updates Without Breaking Things
+- [weekly-tue] Observability vs Monitoring: What Canadian DevOps Teams Need to Know
+- [weekly-thu] Chatbots vs Conversational AI: Understanding the Difference for Your Business
+- [weekly-tue] Email Security Best Practices: Stopping Threats Before They Reach the Inbox
+- [weekly-thu] Capacity Planning for IT Infrastructure: Getting Ahead of Growth
+- [weekly-tue] Caching Strategies for High-Performance Canadian Web Applications
+- [weekly-thu] Time Series Forecasting: Applications for Canadian Supply Chain and Finance
+- [weekly-tue] Dark Web Monitoring: Should Canadian Businesses Be Watching?
+- [weekly-thu] IT Onboarding and Offboarding: Securing the Employee Lifecycle
+- [weekly-tue] Message Queue Systems: RabbitMQ vs Kafka for Canadian Developers
+- [weekly-thu] AI-Driven Demand Forecasting for Canadian Retail and Distribution
+- [weekly-tue] Security Information and Event Management: Is SIEM Right for Your Org?
+- [weekly-thu] Power and Cooling in Data Centres: What Canadian IT Managers Need to Know
+- [weekly-tue] Load Balancing Strategies for Resilient Canadian Cloud Applications
+- [weekly-thu] Transfer Learning: Getting AI Results Without Massive Datasets
+- [weekly-tue] Cyber Insurance in Canada: What It Covers and What It Doesn't
+- [weekly-thu] Unified Communications as a Service: Modernizing Canadian Business Comms
+- [weekly-tue] Database Selection Guide: SQL vs NoSQL for Canadian Application Teams
+- [weekly-thu] Graph Neural Networks: Emerging AI Applications for Canadian Enterprises
+- [weekly-tue] Secure Software Development Lifecycle: A Guide for Canadian Dev Teams
+- [weekly-thu] Managed Print Services: Overlooked IT Savings for Canadian Organizations
