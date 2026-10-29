@@ -7,7 +7,7 @@ description: "Managed IT vs in-house IT for Canadian SMBs: compare costs, contro
 keywords: "managed IT vs in-house IT, Canadian SMBs IT support, managed IT services Canada"
 ogDescription: "Managed IT vs in-house IT for Canadian SMBs: compare costs, control, and scalability to find the right IT model for your business."
 twitterTitle: "Managed IT vs In-House IT for Canadian SMBs"
-slug: "managed-it-vs-in-house-it-what-makes-sense-for-canadian-smbs"
+slug: "2026-10-23-managed-it-vs-in-house-it-what-makes-sense-for-canadian-smbs"
 author: "Gulo AI"
 date: "2026-10-23"
 tags: ["managed IT", "Canadian SMBs", "IT strategy", "in-house IT"]

@@ -7,7 +7,7 @@ description: "Learn why Canadian data sovereignty matters, what PIPEDA requires,
 keywords: "Canadian data sovereignty, PIPEDA compliance, Canadian IT"
 ogDescription: "Learn why Canadian data sovereignty matters, what PIPEDA requires, and how to keep Canadian data in Canada with practical steps."
 twitterTitle: "Data Sovereignty 101: Keeping Canadian Data in Canada"
-slug: "data-sovereignty-101-keeping-canadian-data-in-canada"
+slug: "2026-10-21-data-sovereignty-101-keeping-canadian-data-in-canada"
 author: "Gulo AI"
 date: "2026-10-21"
 tags: ["data sovereignty", "PIPEDA", "cybersecurity", "Canadian compliance"]

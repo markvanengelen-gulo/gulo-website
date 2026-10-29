@@ -7,7 +7,7 @@ description: "Learn how an AI readiness assessment helps Canadian businesses pre
 keywords: "AI readiness assessment, Canadian business AI, AI adoption Canada"
 ogDescription: "Learn how an AI readiness assessment helps Canadian businesses prepare for AI adoption with a practical framework and checklist."
 twitterTitle: "AI Readiness Assessment for Canadian Businesses"
-slug: "ai-readiness-assessment-is-your-canadian-business-ready-for-ai"
+slug: "2026-10-26-ai-readiness-assessment-is-your-canadian-business-ready-for-ai"
 author: "Gulo AI"
 date: "2026-10-26"
 tags: ["AI readiness", "AI strategy", "Canadian business"]

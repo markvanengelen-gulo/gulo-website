@@ -5,7 +5,7 @@ description: "From zombie servers to phantom data leaks, Canadian businesses are
 keywords: "IT horror stories, haunted IT infrastructure, Canadian IT support, managed IT services"
 ogDescription: "Zombie servers, phantom data leaks, poltergeist printers — your IT is haunted. Gulo AI is on the case."
 twitterTitle: "Your IT Is Haunted. Gulo AI Is the Ghostbusters."
-slug: "haunted-it-infrastructure-gulo-ghostbusters"
+slug: "2026-10-30-haunted-it-infrastructure-gulo-ghostbusters"
 author: "Gulo AI"
 date: "2026-10-30"
 tags: ["managed it", "cybersecurity", "humour", "halloween"]

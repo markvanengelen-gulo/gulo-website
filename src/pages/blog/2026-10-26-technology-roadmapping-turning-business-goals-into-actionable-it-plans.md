@@ -7,7 +7,7 @@ description: "Learn how technology roadmapping aligns IT investments with busine
 keywords: "technology roadmapping, IT strategic planning, Canadian IT"
 ogDescription: "Learn how technology roadmapping aligns IT investments with business goals. A practical guide for Canadian organizations."
 twitterTitle: "Technology Roadmapping: From Business Goals to IT Action Plans"
-slug: "technology-roadmapping-turning-business-goals-into-actionable-it-plans"
+slug: "2026-10-26-technology-roadmapping-turning-business-goals-into-actionable-it-plans"
 author: "Gulo AI"
 date: "2026-10-26"
 tags: ["technology roadmapping", "IT strategy", "architecture services"]

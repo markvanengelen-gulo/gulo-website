@@ -7,7 +7,7 @@ description: "Learn how to measure AI project ROI with practical frameworks buil
 keywords: "measure AI project ROI, AI ROI framework, Canadian IT"
 ogDescription: "Learn how to measure AI project ROI with practical frameworks built for Canadian businesses launching their first AI initiative."
 twitterTitle: "How to Measure ROI on Your First AI Project"
-slug: "how-to-measure-roi-on-your-first-ai-project"
+slug: "2026-10-28-how-to-measure-roi-on-your-first-ai-project"
 author: "Gulo AI"
 date: "2026-10-28"
 tags: ["AI", "ROI", "data and AI", "Canadian business"]

@@ -66,7 +66,7 @@ topic = chosen["topic"]
 
 print(f"✅ Writing post on: {topic}")
 
-slug = (topic.lower()
+topic_slug = (topic.lower()
         .replace(" ", "-")
         .replace(":", "")
         .replace("'", "")
@@ -75,6 +75,9 @@ slug = (topic.lower()
         .replace("!", "")
         .replace("&", "and")
         .replace("/", "-"))
+
+# Full slug includes date prefix to match the filename Astro uses for routing
+slug = f"{today.isoformat()}-{topic_slug}"
 
 # Format date for display
 date_display = today.strftime("%B %-d, %Y")
@@ -160,7 +163,7 @@ post_content = message.content[0].text
 # Save post
 post_dir = "src/pages/blog"
 os.makedirs(post_dir, exist_ok=True)
-filename = f"{post_dir}/{today.isoformat()}-{slug}.md"
+filename = f"{post_dir}/{slug}.md"
 
 with open(filename, "w") as f:
     f.write(post_content)
