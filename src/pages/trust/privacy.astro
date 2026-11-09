@@ -21,7 +21,7 @@ const tocItems = [
 
 <BaseLayout
   title="Privacy Policy | Gulo AI Trust Centre"
-  description="Read the Horizon IAM Risk Analyzer Privacy Policy from Gulo AI Canada."
+  description="Read the Azure IAM Risk Analyzer Privacy Policy from Gulo AI Canada."
 >
   <div class="trust-legal-page">
     <section class="trust-legal-shell">
@@ -29,8 +29,8 @@ const tocItems = [
         <header class="trust-legal-header">
           <span class="trust-legal-eyebrow">Trust Centre</span>
           <h1>Privacy Policy</h1>
-          <p class="trust-legal-subtitle">Horizon IAM Risk Analyzer — Gulo AI Canada | gulo.ai</p>
-          <p class="trust-legal-date">Effective Date: September 1, 2026</p>
+          <p class="trust-legal-subtitle">Azure IAM Risk Analyzer — Gulo AI Canada | gulo.ai</p>
+          <p class="trust-legal-date">Effective Date: November 8, 2026</p>
         </header>
 
         <div class="trust-legal-layout">
@@ -44,7 +44,7 @@ const tocItems = [
           </aside>
 
           <article class="trust-legal-content">
-            <p>Gulo AI Canada (&quot;Gulo,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting the privacy of our customers and users. This Privacy Policy explains how we collect, use, disclose, and protect information in connection with the Horizon IAM Risk Analyzer service (&quot;Service&quot;). It applies to all users who access the Service through AWS Marketplace or gulo.ai.</p>
+            <p>Gulo AI Canada (&quot;Gulo,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting the privacy of our customers and users. This Privacy Policy explains how we collect, use, disclose, and protect information in connection with the Azure IAM Risk Analyzer service (&quot;Service&quot;). It applies to all users who access the Service through Azure Marketplace or gulo.ai.</p>
 
             <section class="trust-legal-section" id="section-1">
               <h2>1. Who We Are</h2>
@@ -55,17 +55,17 @@ const tocItems = [
               <h2>2. Information We Collect</h2>
 
               <h3>2.1 Account and Contact Information</h3>
-              <p>When you subscribe to the Service via AWS Marketplace, we receive information from AWS including your name, email address, company name, billing address, and AWS account identifier. We collect this data as it is necessary to perform our contract with you and to manage your account, communicate with you, and provide the Service.</p>
+              <p>When you subscribe to the Service via Azure Marketplace, we receive information from Microsoft including your name, email address, company name, billing address, and Microsoft Entra tenant identifier. We collect this data as it is necessary to perform our contract with you and to manage your account, communicate with you, and provide the Service.</p>
 
-              <h3>2.2 AWS IAM Metadata (Customer Data)</h3>
-              <p>The core function of the Service requires read-only access to IAM configuration metadata in the AWS accounts you connect. This includes:</p>
+              <h3>2.2 Azure IAM Metadata (Customer Data)</h3>
+              <p>The core function of the Service requires read-only access to identity and access management configuration metadata in the Azure environments you connect. This includes:</p>
               <ul>
-                <li>IAM user, group, role, and policy names and ARNs</li>
-                <li>Policy documents (permission statements)</li>
-                <li>IAM configuration attributes (e.g., password policy, MFA status, access key ages)</li>
-                <li>Trust relationship configurations</li>
+                <li>Entra ID user, group, role assignment, and application (service principal) names and identifiers</li>
+                <li>Role definition and permission scope configurations</li>
+                <li>Conditional Access policy configurations (names, conditions, grant controls)</li>
+                <li>Managed identity and service principal attributes (e.g., credential expiry, permission grants)</li>
               </ul>
-              <p>We do not collect, access, or process the contents of your S3 buckets, databases, application data, or other non-IAM resources. We do not collect AWS credentials (access keys or secrets) — access is provided through a read-only cross-account IAM role created in your account. We collect this data pursuant to the contract between Gulo and Customer, as it is necessary to provide the Service.</p>
+              <p>We do not collect, access, or process the contents of your Azure Storage accounts, databases, application data, or other non-identity resources. We do not collect Azure credentials — access is provided through a read-only service principal with Reader role assigned in your tenant. We collect this data pursuant to the contract between Gulo and Customer, as it is necessary to provide the Service.</p>
 
               <h3>2.3 Usage Data</h3>
               <p>We collect technical information about how you interact with the Service, including:</p>
@@ -91,7 +91,7 @@ const tocItems = [
               <p>We use the information we collect to:</p>
               <ul>
                 <li>Provide, operate, and maintain the Service</li>
-                <li>Analyze IAM configurations and generate risk findings and recommendations</li>
+                <li>Analyze Azure identity configurations and generate risk findings and recommendations</li>
                 <li>Send transactional emails (account setup, findings alerts, subscription notifications)</li>
                 <li>Respond to support requests and inquiries</li>
                 <li>Monitor Service performance, reliability, and security</li>
@@ -112,14 +112,14 @@ const tocItems = [
               <h3>5.1 Service Providers</h3>
               <p>We engage trusted third-party service providers who process data on our behalf, including:</p>
               <ul>
-                <li>Amazon Web Services (cloud infrastructure — your data stays in your selected AWS region)</li>
+                <li>Microsoft Azure (cloud infrastructure — your data stays in your selected Azure region)</li>
                 <li>Transactional email providers (for notifications)</li>
                 <li>Analytics and monitoring tools (using aggregated, de-identified data)</li>
               </ul>
               <p>All service providers are bound by contractual data processing obligations consistent with this Policy.</p>
 
-              <h3>5.2 AWS Marketplace</h3>
-              <p>Your subscription and billing are managed through AWS Marketplace. AWS may share limited account information with us as part of the subscription fulfilment process. AWS&apos;s own privacy policy governs its data practices.</p>
+              <h3>5.2 Azure Marketplace</h3>
+              <p>Your subscription and billing are managed through Azure Marketplace. Microsoft may share limited account information with us as part of the subscription fulfilment process. Microsoft&apos;s own privacy policy governs its data practices.</p>
 
               <h3>5.3 Legal Requirements</h3>
               <p>We may disclose information if required by law, court order, or government authority, or where necessary to protect the rights, property, or safety of Gulo, our customers, or others.</p>
@@ -137,11 +137,11 @@ const tocItems = [
               <h2>7. Data Security</h2>
               <p>We implement technical and organizational security measures appropriate to the sensitivity of the information, including:</p>
               <ul>
-                <li>Encryption of data at rest (AWS KMS) and in transit (TLS 1.2+)</li>
-                <li>Private S3 buckets with block-public-access enabled</li>
-                <li>Least-privilege IAM roles for all Service components</li>
+                <li>Encryption of data at rest (Azure Key Vault) and in transit (TLS 1.2+)</li>
+                <li>Private Azure Blob Storage with public access disabled</li>
+                <li>Least-privilege service principals for all Service components</li>
                 <li>Dead-letter queues and error monitoring for reliability</li>
-                <li>CloudWatch log retention and access controls</li>
+                <li>Azure Monitor log retention and access controls</li>
                 <li>Regular security reviews and dependency updates</li>
               </ul>
               <p>No security system is impenetrable. In the event of a breach of security safeguards involving personal information that poses a real risk of significant harm, we will notify affected individuals and the Office of the Privacy Commissioner of Canada as required under PIPEDA&apos;s breach notification rules. We will also notify the BC Office of the Information and Privacy Commissioner where required under PIPA.</p>
@@ -149,7 +149,7 @@ const tocItems = [
 
             <section class="trust-legal-section" id="section-8">
               <h2>8. International Data Transfers</h2>
-              <p>The Service is deployed within AWS regions you select. If your selected region is outside Canada, your Customer Data will be processed in that region. When personal information is transferred outside Canada, it remains subject to the laws of the jurisdiction where it is processed. We take steps to ensure equivalent protection through contractual safeguards. For customers in the European Economic Area or United Kingdom, data transfers will be subject to appropriate safeguards. Please contact <a href="mailto:privacy@gulo.ai">privacy@gulo.ai</a> for details.</p>
+              <p>The Service is deployed within Azure regions you select. If your selected region is outside Canada, your Customer Data will be processed in that region. When personal information is transferred outside Canada, it remains subject to the laws of the jurisdiction where it is processed. We take steps to ensure equivalent protection through contractual safeguards. For customers in the European Economic Area or United Kingdom, data transfers will be subject to appropriate safeguards. Please contact <a href="mailto:privacy@gulo.ai">privacy@gulo.ai</a> for details.</p>
             </section>
 
             <section class="trust-legal-section" id="section-9">
@@ -173,7 +173,7 @@ const tocItems = [
 
             <section class="trust-legal-section" id="section-11">
               <h2>11. Third-Party Services</h2>
-              <p>The Service integrates with AWS services. Your use of AWS is governed by Amazon&apos;s terms of service and privacy policy. We are not responsible for the privacy practices of AWS or other third parties.</p>
+              <p>The Service integrates with Microsoft Azure services. Your use of Azure is governed by Microsoft&apos;s terms of service and privacy policy. We are not responsible for the privacy practices of Microsoft or other third parties.</p>
             </section>
 
             <section class="trust-legal-section" id="section-12">
