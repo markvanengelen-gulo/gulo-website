@@ -34,7 +34,9 @@ const blogModules = await Astro.glob('./blog/*.{md,astro}');
 const latestInsights = blogModules
   .map((module) => {
     const frontmatter = (module.frontmatter ?? {}) as Record<string, string | undefined>;
-    const slug = frontmatter.slug;
+    const file = (module as unknown as { file?: string }).file ?? '';
+    // Use filename for routing — matches Astro's file-based URL, not frontmatter.slug
+    const slug = file.split('/').pop()?.replace(/\.(md|astro)$/, '') ?? '';
     const title = frontmatter.title;
     const excerpt = frontmatter.description;
     const publishDate = frontmatter.publishDate;
@@ -56,17 +58,17 @@ const latestInsights = blogModules
   .slice(0, 2);
 ---
 
-<BaseLayout 
-  title="Gulo AI — AI Services, Cloud Advisory &amp; AWS Security"
-  description="AI services, cloud advisory, and AWS security from a Canadian-based team. Horizon IAM Risk Analyzer detects IAM misconfigurations automatically — available globally on AWS Marketplace."
-  ogTitle="Gulo AI — AI Services, Cloud Advisory &amp; AWS Security"
-  ogDescription="AI services, cloud advisory, and AWS security from a Canadian-based team. Horizon IAM Risk Analyzer is available globally on AWS Marketplace."
+<BaseLayout
+  title="Gulo AI — AI Services, Cloud Advisory &amp; Azure IAM Security"
+  description="AI services, cloud advisory, and cloud IAM security from a Canadian-based team. Azure IAM Risk Analyzer detects identity misconfigurations automatically. Canadian data sovereignty options available."
+  ogTitle="Gulo AI — AI Services, Cloud Advisory &amp; Azure IAM Security"
+  ogDescription="AI services, cloud advisory, and Azure IAM security from a Canadian-based team. Identify and fix cloud identity misconfigurations before they become breaches."
 >
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>AI Services, Cloud Advisory &amp; AWS Security — Canadian-Based, Globally Delivered</h1>
-      <p>Practical AI and cloud services from a Canadian-based team, with Horizon IAM Risk Analyzer available globally on AWS Marketplace. Canadian data sovereignty options available.</p>
+      <h1>AI Services, Cloud Advisory &amp; Cloud IAM Security — Canadian-Based, Globally Delivered</h1>
+      <p>Practical AI and cloud services from a Canadian-based team. Azure IAM Risk Analyzer finds identity misconfigurations before attackers do. Canadian data sovereignty options available.</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href={`${base}services`} class="btn btn-primary btn-large">Explore Our Services</a>
       </div>
@@ -136,13 +138,13 @@ const latestInsights = blogModules
     </div>
   </section>
 
-  <!-- Horizon IAM Risk Analyzer Section -->
+  <!-- Azure IAM Risk Analyzer Section -->
   <section class="bg-light">
     <div class="container">
       <div class="card featured-product" style="grid-column: 1 / -1; border: 2px solid var(--primary-color, #1e40af); background: #f0f4ff;">
-        <h3>Horizon IAM Risk Analyzer</h3>
-        <p>Our AI-powered AWS security tool detects IAM misconfigurations, maps privilege escalation paths, and delivers plain-language remediation guidance. Available globally on AWS Marketplace — free 14-day trial included.</p>
-        <a href={`${base}contact`} class="btn btn-primary">Contact Us →</a>
+        <h3>Azure IAM Risk Analyzer — Coming December 2026</h3>
+        <p>Our AI-powered Azure security tool scans your Entra ID environment, detects role assignment misconfigurations, over-privileged service principals, and weak Conditional Access policies — then delivers prioritized, plain-language remediation guidance. Get early access when it launches.</p>
+        <a href={`${base}contact`} class="btn btn-primary">Get Early Access →</a>
       </div>
     </div>
   </section>
@@ -199,8 +201,8 @@ const latestInsights = blogModules
           <p>Enterprise Clients</p>
         </div>
         <div class="text-center">
-          <h2 class="text-primary">Global</h2>
-          <p>AWS Marketplace Distribution</p>
+          <h2 class="text-primary">Azure</h2>
+          <p>IAM Risk Analyzer — Dec 2026</p>
         </div>
       </div>
     </div>
@@ -211,7 +213,7 @@ const latestInsights = blogModules
     <div class="container text-center">
       <h2 style="color: white;">Ready to Move Forward?</h2>
       <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem;">
-        Whether you're building AI solutions, modernizing cloud architecture, or strengthening AWS security — Gulo AI brings global capability with Canadian accountability.
+        Whether you're building AI solutions, modernizing cloud architecture, or securing your Azure identity environment — Gulo AI brings global capability with Canadian accountability.
       </p>
       <a href={`${base}contact`} class="btn btn-primary btn-large btn-white" style="color: white;">
         Get in Touch
