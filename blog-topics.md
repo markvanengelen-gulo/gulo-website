@@ -3,6 +3,22 @@
 Format: - [schedule] Topic title
 Schedules: daily, weekly-mon, weekly-tue, weekly-wed, weekly-thu, weekly-fri, every-other-day, biweekly
 
+## Azure IAM Launch Series (November–December 2026)
+## Runs first — introduces and builds demand for the upcoming Azure IAM product launch
+
+- [weekly-mon] Why Azure IAM Is the New Frontline of Canadian Cloud Security
+- [weekly-wed] The Hidden Cost of Azure Identity Misconfiguration for Canadian Organizations
+- [weekly-fri] Azure AD vs Entra ID: What Canadian IT Leaders Need to Know Right Now
+- [weekly-mon] Role Assignment Gone Wrong: The Most Dangerous Azure RBAC Mistakes
+- [weekly-wed] Conditional Access Policies in Azure: A Canadian IT Leader's Practical Guide
+- [weekly-fri] How to Audit Your Azure IAM Posture Before It Becomes a Breach
+- [weekly-mon] Azure Privileged Identity Management: Eliminating Standing Admin Access
+- [weekly-wed] Service Principals and Managed Identities: The Azure Identity Gap Most Teams Miss
+- [weekly-fri] Azure IAM for Canadian Compliance: Meeting PIPEDA and CCPA Requirements
+- [weekly-mon] From Assessment to Action: Building a 90-Day Azure IAM Remediation Plan
+- [weekly-wed] What a Real Azure IAM Breach Looks Like — And How to Stop It
+- [weekly-fri] Introducing Gulo AI's Azure IAM Risk Analyzer: Know Your Exposure in Minutes
+
 ## Topics
 
 - [weekly-mon] AI Readiness Assessment: Is Your Canadian Business Ready for AI?
