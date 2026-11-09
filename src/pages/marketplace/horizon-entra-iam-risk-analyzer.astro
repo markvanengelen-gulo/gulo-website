@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+// ---------------------------------------------------------------------------
+// Azure Marketplace landing page (customer journey step 2) for
+// Horizon Entra IAM Risk Analyzer.
+//
+// INTEGRATION NOTE for Phase 5 (not built yet — see claude/marketplace-
+// customer-journey.md and claude/azure-pivot-plan.md in the Gulo Solutions
+// project): once a transactable SaaS offer exists in Partner Center, this
+// page becomes the "landing page URL" registered in the offer's Technical
+// configuration. At that point:
+//   1. Marketplace redirects here with a purchase token (?token=...).
+//   2. The customer signs in via Microsoft Entra SSO (a multitenant app
+//      distinct from Horizon's own Entra External ID customer identity —
+//      see the open question in marketplace-customer-journey.md).
+//   3. The backend calls the Resolve API (server-to-server, via a separate
+//      single-tenant fulfillment app) to confirm the token and pull
+//      subscription/plan/offer details.
+//   4. The #subscription-status card below gets populated with real data
+//      and the Activate Subscription API is called once the customer
+//      confirms — that's the moment billing starts.
+// Until then, this card shows static placeholder content so the page is
+// presentable and the design/copy can be reviewed ahead of the backend work.
+// ---------------------------------------------------------------------------
+---
+
+<BaseLayout
+  title="Get Started — Horizon Entra IAM Risk Analyzer | Gulo AI"
+  description="Finish setting up Horizon Entra IAM Risk Analyzer after your Azure Marketplace purchase — connect your Microsoft tenant and see your first results in minutes."
+>
+  <section class="hero horizon-hero">
+    <div class="container">
+      <span class="horizon-eyebrow">Horizon &middot; by Gulo AI</span>
+      <h1>You're almost ready</h1>
+      <p class="hero-subtitle">Finish setting up <strong>Entra IAM Risk Analyzer</strong> &mdash; connect your Microsoft tenant and we'll run your first scan automatically. Takes about 2 minutes.</p>
+
+      <div class="horizon-status-card" id="subscription-status">
+        <div class="horizon-status-row"><span>Plan</span><span data-field="plan-name">Horizon Entra IAM Risk Analyzer</span></div>
+        <div class="horizon-status-row"><span>Billing</span><span data-field="billing-terms">Via your Azure Marketplace invoice</span></div>
+        <div class="horizon-status-row"><span>Account</span><span data-field="account-email">Confirmed at sign-in</span></div>
+        <div style="margin-top: 1.5rem; text-align:center;">
+          <a href={`${base}contact`} class="btn horizon-btn btn-large" id="connect-cta">Connect with Microsoft</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-step guide -->
+  <section id="get-started-steps">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-subtitle">Five steps, start to finish &mdash; no manual role ARNs or CloudFormation templates to paste in.</p>
+
+      <div class="horizon-step-grid">
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">1</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><path d="M38 10a12 12 0 1 0 8.49 20.49L58 42l4-4-11.51-11.51A12 12 0 0 0 38 10Zm0 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z" fill="white"/></svg></div>
+          <h3>Sign in</h3>
+          <p>Confirm it's you with your Microsoft work account &mdash; you're already authenticated from Azure Marketplace.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">2</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><path d="M18 10h20l10 10v34a2 2 0 0 1-2 2H18a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2Z" fill="none" stroke="white" stroke-width="3"/><path d="M38 10v10h10" fill="none" stroke="white" stroke-width="3"/><path d="M22 32h20M22 40h20M22 48h12" stroke="white" stroke-width="3" stroke-linecap="round"/></svg></div>
+          <h3>Review your subscription</h3>
+          <p>Check your plan, billing terms, and account details before continuing.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">3</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><circle cx="20" cy="44" r="7" fill="none" stroke="white" stroke-width="3"/><circle cx="44" cy="20" r="7" fill="none" stroke="white" stroke-width="3"/><path d="M25 39 39 25" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M44 27v10a7 7 0 0 1-7 7H27" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="2 6"/></svg></div>
+          <h3>Connect with Microsoft</h3>
+          <p>One click starts the secure, read-only connection to your Entra tenant.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">4</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><path d="M32 8 14 15v15c0 14 8 23 18 26 10-3 18-12 18-26V15L32 8Z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/><path d="M24 32l6 6 12-13" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Approve the permissions</h3>
+          <p>As your tenant admin, approve the request. Horizon only ever asks for read-only Microsoft Graph scopes.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">5</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="white" stroke-width="3"/><circle cx="32" cy="32" r="3" fill="white"/><path d="M32 32 46 20" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M32 12a20 20 0 0 1 20 20" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.55"/></svg></div>
+          <h3>Your first scan runs automatically</h3>
+          <p>No extra setup &mdash; check your dashboard and results start populating right away.</p>
+        </div>
+      </div>
+
+      <p class="horizon-security-note">Horizon never requests write access to your directory. The full permission scope list is documented in your admin-consent screen before you approve anything.</p>
+    </div>
+  </section>
+
+  <!-- Instructional video -->
+  <section class="horizon-video-section">
+    <div class="container">
+      <h2 class="section-title">Watch the 30-second walkthrough</h2>
+      <p class="section-subtitle">The same five steps, start to finish.</p>
+      <div class="horizon-video-wrap">
+        <video
+          controls
+          preload="metadata"
+          poster={`${base}images/horizon/horizon-get-started-poster.jpg`}
+          width="1280"
+          height="720"
+        >
+          <source src={`${base}videos/horizon-get-started.mp4`} type="video/mp4" />
+          Your browser doesn't support embedded video. <a href={`${base}videos/horizon-get-started.mp4`}>Download the walkthrough</a> instead.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light">
+    <div class="container text-center">
+      <h2 class="section-title">Need a hand?</h2>
+      <p class="section-subtitle">If anything looks off, or your admin needs to review the permission request first, we're here.</p>
+      <a href={`${base}contact`} class="btn btn-secondary btn-large">Contact support</a>
+    </div>
+  </section>
+</BaseLayout>
