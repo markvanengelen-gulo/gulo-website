@@ -311,6 +311,14 @@ const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY || 'b3871ef6-a3
     // Layer 2: record form load time for timing check
     const formLoadTime = Date.now();
 
+    // Prefill the Subject field from a ?subject= query param, e.g. a CTA
+    // link from a product landing page ("Request early access" etc.).
+    const prefillSubject = new URLSearchParams(window.location.search).get('subject');
+    if (prefillSubject) {
+      const subjectInput = document.getElementById('subject') as HTMLInputElement | null;
+      if (subjectInput) subjectInput.value = prefillSubject;
+    }
+
     // Layer 3: math challenge state
     let mathNum1 = 0;
     let mathNum2 = 0;

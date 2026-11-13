@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+// ---------------------------------------------------------------------------
+// Early-access marketing landing page for Horizon Data Residency Monitor —
+// NOT the Azure Marketplace "landing page URL" / SaaS fulfillment page
+// pattern used by src/pages/marketplace/horizon-entra-iam-risk-analyzer.astro.
+// That page exists for a transactable Marketplace offer that's already
+// live; this product has no Marketplace listing yet (see
+// claude/azure-data-residency-monitor-proposal.md in the Gulo Solutions
+// project — packaging/offer-type questions are still open) and the backend
+// (repo horizon-data-residency) is code-complete but not deployed to a
+// live Azure subscription. This page's job is early-access signal
+// collection and positioning, not onboarding an existing customer, so it
+// deliberately has no pricing, no "Connect with Microsoft" button, and no
+// subscription-status card.
+// ---------------------------------------------------------------------------
+
+const earlyAccessHref = `${base}contact?subject=${encodeURIComponent('Early access: Horizon Data Residency Monitor')}`;
+---
+
+<BaseLayout
+  title="Horizon Data Residency Monitor — Early Access | Gulo AI"
+  description="Know exactly where your Azure data lives, and get alerted the moment that changes. Horizon Data Residency Monitor is in early access for Canadian Azure customers — request access."
+>
+  <section class="hero horizon-hero">
+    <div class="container">
+      <span class="horizon-eyebrow">Horizon &middot; by Gulo AI</span>
+      <span class="horizon-badge">Early Access</span>
+      <h1>Know where your Azure data really lives.</h1>
+      <p class="hero-subtitle">Horizon Data Residency Monitor continuously answers one question for Canadian businesses running on Azure: is any of our data or workload physically located, replicated, or processed outside Canada right now &mdash; and did anything change since last week?</p>
+      <div style="text-align:center;">
+        <a href={earlyAccessHref} class="btn horizon-btn btn-large">Request early access</a>
+      </div>
+      <p class="horizon-fineprint">No pricing commitment &mdash; we'll reach out to talk through fit before anything is billed.</p>
+    </div>
+  </section>
+
+  <!-- The gap -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">A real Azure feature, almost nobody has turned on</h2>
+      <p class="section-subtitle">Azure already ships a native way to check this. It's free, and it has real blind spots &mdash; by design.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><circle cx="28" cy="28" r="14" fill="none" stroke="white" stroke-width="4"/><path d="M38 38 52 52" stroke="white" stroke-width="4" stroke-linecap="round"/></svg></div>
+          <h3>Easy to miss, by design</h3>
+          <p>Azure Policy's <em>Sovereignty Baseline &mdash; Global Policies</em> initiative covers data residency, but finding it, assigning it at the right scope, and reading the results through Azure Policy's compliance UI assumes a level of Azure governance fluency most SMB IT setups don't have.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><path d="M32 8 58 52H6Z" fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/><path d="M32 26v12" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="44" r="2.5" fill="white"/></svg></div>
+          <h3>"Compliant" isn't the whole picture</h3>
+          <p>Microsoft's own documentation is explicit: even configured correctly, the Allowed Locations policy excludes resource groups themselves and the <code>global</code> pseudo-region, and has nothing to say about Entra ID/tenant-level data location at all.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><circle cx="16" cy="16" r="6" fill="none" stroke="white" stroke-width="3.5"/><circle cx="16" cy="48" r="6" fill="none" stroke="white" stroke-width="3.5"/><circle cx="48" cy="32" r="6" fill="none" stroke="white" stroke-width="3.5"/><path d="M16 22v20" stroke="white" stroke-width="3.5"/><path d="M20 20 42 30" stroke="white" stroke-width="3.5"/><path d="M20 44 42 34" stroke="white" stroke-width="3.5"/></svg></div>
+          <h3>Pipeline checks aren't live monitoring</h3>
+          <p>Open-source tooling like PSRule.Rules.Azure checks the same kind of thing &mdash; but as a CI/CD linter against templates before deployment, not against what's actually running right now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it checks -->
+  <section class="bg-light">
+    <div class="container">
+      <h2 class="section-title">What it checks, every scan</h2>
+      <p class="section-subtitle">A narrow, single-purpose scanner &mdash; not a general compliance platform.</p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><circle cx="32" cy="32" r="22" fill="none" stroke="white" stroke-width="3.5"/><path d="M10 32h44M32 10a30 30 0 0 1 0 44M32 10a30 30 0 0 0 0 44" fill="none" stroke="white" stroke-width="3"/></svg></div>
+          <h3>Every resource's region</h3>
+          <p>VMs, storage accounts, databases, Function Apps/App Services, Key Vaults, networking &mdash; queried across every subscription in scope via Azure Resource Graph.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><rect x="12" y="12" width="28" height="28" rx="3" fill="none" stroke="white" stroke-width="3.5"/><rect x="24" y="24" width="28" height="28" rx="3" fill="none" stroke="white" stroke-width="3.5"/></svg></div>
+          <h3>Replication &amp; secondary regions</h3>
+          <p>Storage account secondary locations, Cosmos DB's region list, SQL geo-replication partners &mdash; the setting that lets a resource show "Canada Central" while quietly replicating to the US.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><path d="M8 18a2 2 0 0 1 2-2h14l5 6h25a2 2 0 0 1 2 2v26a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2Z" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/></svg></div>
+          <h3>Resource groups &amp; subscriptions</h3>
+          <p>Not just the resources inside them &mdash; explicitly the gap Azure's own Allowed Locations policy leaves open.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><path d="M14 22 24 12v8h18v8H24v8Z" fill="white"/><path d="M50 42 40 52v-8H22v-8h18v-8Z" fill="white"/></svg></div>
+          <h3>Drift since your last scan</h3>
+          <p>A point-in-time report is far less useful than "here's what moved since last week." Every scan is diffed against the one before it.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><path d="M10 14h44v28H30l-10 10v-10H10Z" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/><path d="M20 24h24M20 32h16" stroke="white" stroke-width="3" stroke-linecap="round"/></svg></div>
+          <h3>Plain-language findings</h3>
+          <p>Every finding maps to a sentence a business owner can act on, with PIPEDA/provincial health-data relevance noted &mdash; not a raw JSON export.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon"><svg viewBox="0 0 64 64" width="32" height="32"><path d="M32 8 54 16v16c0 16-9 25.5-22 32C19 57.5 10 48 10 32V16Z" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"/><rect x="24" y="30" width="16" height="14" rx="2" fill="none" stroke="white" stroke-width="3"/><path d="M27 30v-5a5 5 0 0 1 10 0v5" fill="none" stroke="white" stroke-width="3"/></svg></div>
+          <h3>Read-only, always</h3>
+          <p>This product reports and alerts. It never modifies your Azure Policies or any resource &mdash; the same read-only trust story as every other Horizon product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it connects -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">One required click. We verify the rest.</h2>
+      <p class="section-subtitle">Azure requires an explicit consent action from your own tenant &mdash; by design, so no third party can silently gain cross-tenant access. Everything else collapses to as little as possible.</p>
+
+      <div class="horizon-step-grid">
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">1</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><circle cx="20" cy="44" r="7" fill="none" stroke="white" stroke-width="3"/><circle cx="44" cy="20" r="7" fill="none" stroke="white" stroke-width="3"/><path d="M25 39 39 25" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M44 27v10a7 7 0 0 1-7 7H27" stroke="white" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="2 6"/></svg></div>
+          <h3>Connect a subscription</h3>
+          <p>One prefilled Azure Portal link per subscription, via Azure Lighthouse &mdash; no CloudFormation-style templates to paste in by hand.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">2</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><path d="M32 8 14 15v15c0 14 8 23 18 26 10-3 18-12 18-26V15L32 8Z" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"/><path d="M24 32l6 6 12-13" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Grant Reader, nothing more</h3>
+          <p>Delegates the built-in Reader role only &mdash; configuration and metadata visibility, never write access to anything. Revoke anytime from your own Azure portal.</p>
+        </div>
+        <div class="horizon-step-card">
+          <div class="horizon-step-number">3</div>
+          <div class="horizon-step-icon"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="white" stroke-width="3"/><circle cx="32" cy="32" r="3" fill="white"/><path d="M32 32 46 20" stroke="white" stroke-width="3" stroke-linecap="round"/><path d="M32 12a20 20 0 0 1 20 20" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.55"/></svg></div>
+          <h3>We verify, not trust</h3>
+          <p>We confirm the delegation really exists and a live query actually resolves &mdash; your own say-so is never enough to flip a connection to "Active."</p>
+        </div>
+      </div>
+
+      <p class="horizon-security-note">Lighthouse delegation can take several minutes to propagate after you deploy &mdash; that's normal, not an error, and your dashboard will show "waiting for Azure" until it's confirmed.</p>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="bg-light">
+    <div class="container text-center">
+      <h2 class="section-title">Built for Canadian organizations that have to answer this</h2>
+      <p class="section-subtitle">SMBs and regulated-adjacent organizations &mdash; health, legal, financial services, public-sector-adjacent &mdash; running on Azure without a dedicated cloud governance hire, who need to tell a client, an insurer, a board, or a regulator exactly where their data lives, with more confidence than "nobody told us otherwise."</p>
+    </div>
+  </section>
+
+  <!-- Early access CTA -->
+  <section class="horizon-hero" style="padding: var(--spacing-2xl) 0;">
+    <div class="container text-center">
+      <h2 class="section-title" style="color: var(--color-white);">Be first in line</h2>
+      <p class="hero-subtitle">We're onboarding early-access customers now, ahead of a public Azure Marketplace listing. Tell us about your subscriptions and compliance needs, and we'll reach out to set up a connection.</p>
+      <a href={earlyAccessHref} class="btn horizon-btn btn-large">Request early access</a>
+    </div>
+  </section>
+</BaseLayout>

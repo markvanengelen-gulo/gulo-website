@@ -1289,6 +1289,28 @@ footer {
   margin-bottom: var(--spacing-md);
 }
 
+.horizon-badge {
+  display: block;
+  width: fit-content;
+  margin: 0 auto var(--spacing-md);
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+}
+
+.horizon-fineprint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
+}
+
 .horizon-status-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.22);
