@@ -15,5 +15,6 @@
   "Role Assignment Gone Wrong: The Most Dangerous Azure RBAC Mistakes": "2026-11-16",
   "Conditional Access Policies in Azure: A Canadian IT Leader's Practical Guide": "2026-11-18",
   "How to Audit Your Azure IAM Posture Before It Becomes a Breach": "2026-11-20",
-  "Azure Privileged Identity Management: Eliminating Standing Admin Access": "2026-11-23"
+  "Azure Privileged Identity Management: Eliminating Standing Admin Access": "2026-11-23",
+  "Service Principals and Managed Identities: The Azure Identity Gap Most Teams Miss": "2026-11-25"
 }
